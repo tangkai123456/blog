@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by tangkai on 2016/10/11.
  */
 /**
@@ -38,9 +38,13 @@ function renderAqiList() {
     var tab=document.getElementById('aqi-table');
     tab.innerHTML=str;
     var del=document.getElementsByClassName('delate');
-    for(var i=0;i<del.length;i++){
+    del=Array.prototype.slice.call(del,0);
+    /*for(var i=0;i<del.length;i++){
         del[i].onclick=delBtnHandle;
-    }
+    }*/
+    del.forEach(function(e,i){
+        e.onclick=delBtnHandle;
+    })
 }
 
 /**
