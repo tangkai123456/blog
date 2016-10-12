@@ -1,39 +1,51 @@
 /**
- * Created by tangkai on 2016/9/27.
+ * Created by tangkai on 2016/10/11.
  */
 /**
- * aqiData£¬´æ´¢ÓÃ»§ÊäÈëµÄ¿ÕÆøÖ¸ÊıÊı¾İ
- * Ê¾Àı¸ñÊ½£º
+ * aqiDataï¼Œå­˜å‚¨ç”¨æˆ·è¾“å…¥çš„ç©ºæ°”æŒ‡æ•°æ•°æ®
+ * ç¤ºä¾‹æ ¼å¼ï¼š
  * aqiData = {
- *    "±±¾©": 90,
- *    "ÉÏº£": 40
+ *    "åŒ—äº¬": 90,
+ *    "ä¸Šæµ·": 40
  * };
  */
 var aqiData = {};
 
 /**
- * ´ÓÓÃ»§ÊäÈëÖĞ»ñÈ¡Êı¾İ£¬ÏòaqiDataÖĞÔö¼ÓÒ»ÌõÊı¾İ
- * È»ºóäÖÈ¾aqi-listÁĞ±í£¬Ôö¼ÓĞÂÔöµÄÊı¾İ
+ * ä»ç”¨æˆ·è¾“å…¥ä¸­è·å–æ•°æ®ï¼Œå‘aqiDataä¸­å¢åŠ ä¸€æ¡æ•°æ®
+ * ç„¶åæ¸²æŸ“aqi-liståˆ—è¡¨ï¼Œå¢åŠ æ–°å¢çš„æ•°æ®
  */
 function addAqiData() {
-    var city=document.getElementById('aqi-city-input').value;
-    var aqi=document.getElementById('aqi-value-input').value;
-    aqiData[city]=aqi;
+    var city=document.getElementById("aqi-city-input");
+    var val=document.getElementById("aqi-value-input");
+    city=city.value.trim();
+    val=val.value.trim();
+    if((city.match(/[a-zA-Z]+/))&&val.match(/[0-9]{1,3}/)) {
+        aqiData[city] = val;
+    }else{
+        alert("è¯·é‡æ–°è¾“å…¥");
+    }
+    console.log(aqiData);
 }
-
 /**
- * äÖÈ¾aqi-table±í¸ñ
+ * æ¸²æŸ“aqi-tableè¡¨æ ¼
  */
 function renderAqiList() {
-    var str="<tr><td>³ÇÊĞ</td><td>¿ÕÆøÖÊÁ¿</td><td>²Ù×÷</td>";
-
-    return str;
+    var str="";
+    for(var i in aqiData){
+        str+="<tr><td>åŸå¸‚</td><td>"+i+"</td><td>ç©ºæ°”è´¨é‡</td><td>"+aqiData[i]+"</td><td><button class=\"delate\">åˆ é™¤</button></td></tr>";
+    }
+    var tab=document.getElementById('aqi-table');
+    tab.innerHTML=str;
+    var del=document.getElementsByClassName('delate');
+    for(var i=0;i<del.length;i++){
+        del[i].onclick=delBtnHandle;
+    }
 }
-renderAqiList();
 
 /**
- * µã»÷add-btnÊ±µÄ´¦ÀíÂß¼­
- * »ñÈ¡ÓÃ»§ÊäÈë£¬¸üĞÂÊı¾İ£¬²¢½øĞĞÒ³Ãæ³ÊÏÖµÄ¸üĞÂ
+ * ç‚¹å‡»add-btnæ—¶çš„å¤„ç†é€»è¾‘
+ * è·å–ç”¨æˆ·è¾“å…¥ï¼Œæ›´æ–°æ•°æ®ï¼Œå¹¶è¿›è¡Œé¡µé¢å‘ˆç°çš„æ›´æ–°
  */
 function addBtnHandle() {
     addAqiData();
@@ -41,20 +53,22 @@ function addBtnHandle() {
 }
 
 /**
- * µã»÷¸÷¸öÉ¾³ı°´Å¥µÄÊ±ºòµÄ´¦ÀíÂß¼­
- * »ñÈ¡ÄÄ¸ö³ÇÊĞÊı¾İ±»É¾£¬É¾³ıÊı¾İ£¬¸üĞÂ±í¸ñÏÔÊ¾
+ * ç‚¹å‡»å„ä¸ªåˆ é™¤æŒ‰é’®çš„æ—¶å€™çš„å¤„ç†é€»è¾‘
+ * è·å–å“ªä¸ªåŸå¸‚æ•°æ®è¢«åˆ ï¼Œåˆ é™¤æ•°æ®ï¼Œæ›´æ–°è¡¨æ ¼æ˜¾ç¤º
  */
 function delBtnHandle() {
     // do sth.
-
+    var de=document.getElementsByClassName('delate');
+    var cityName=this.parentNode.parentNode.childNodes[1].innerText;
+    delete aqiData[cityName];
     renderAqiList();
 }
 
 function init() {
-
-    // ÔÚÕâÏÂÃæ¸øadd-btn°ó¶¨Ò»¸öµã»÷ÊÂ¼ş£¬µã»÷Ê±´¥·¢addBtnHandleº¯Êı
-
-    // Ïë°ì·¨¸øaqi-tableÖĞµÄËùÓĞÉ¾³ı°´Å¥°ó¶¨ÊÂ¼ş£¬´¥·¢delBtnHandleº¯Êı
+    var bt=document.getElementById('add-btn')
+    bt.onclick=addBtnHandle;
+    // åœ¨è¿™ä¸‹é¢ç»™add-btnç»‘å®šä¸€ä¸ªç‚¹å‡»äº‹ä»¶ï¼Œç‚¹å‡»æ—¶è§¦å‘addBtnHandleå‡½æ•°
+    // æƒ³åŠæ³•ç»™aqi-tableä¸­çš„æ‰€æœ‰åˆ é™¤æŒ‰é’®ç»‘å®šäº‹ä»¶ï¼Œè§¦å‘delBtnHandleå‡½æ•°
 
 }
 
