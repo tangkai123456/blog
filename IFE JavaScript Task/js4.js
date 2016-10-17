@@ -43,7 +43,7 @@ function renderAqiList() {
         del[i].onclick=delBtnHandle;
     }*/
     del.forEach(function(e,i){
-        e.onclick=delBtnHandle;
+        e.onclick=delBtnHandle;........................................................................................................................z
     })
 }
 
