@@ -113,8 +113,8 @@
                     i++;
                     j = 0;
                 }
-                var h1=~~area.childNodes[j].style.height.split("px")[0];//获取高度值，转化为数字类型，用来比较
-                var h2=~~area.childNodes[j+1].style.height.split("px")[0];
+                var h1=+area.childNodes[j].style.height.split("px")[0];//获取高度值，转化为数字类型，用来比较
+                var h2=+area.childNodes[j+1].style.height.split("px")[0];
                 if (h1>h2) {
                     area.childNodes[j].style.height = area.childNodes[j + 1].style.height;
                     area.childNodes[j + 1].style.height=h1+"px";
