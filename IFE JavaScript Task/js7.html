@@ -94,34 +94,52 @@
             alert("请输入值");
         }
     }
+    /*交换*/
+    function swap(j){
+        var h1=+area.childNodes[j].style.height.split("px")[0];//获取高度值，转化为数字类型，用来比较
+        var h2=+area.childNodes[j+1].style.height.split("px")[0];
+        if (h1>h2) {
+            area.childNodes[j].style.height = area.childNodes[j + 1].style.height;
+            area.childNodes[j + 1].style.height=h1+"px";
+        }
+    }
+    /*所有按钮不可用*/
+    function disabled(){
+        var bt=document.getElementsByTagName('button');
+        for(var k= 0,l=bt.length;k<l;k++){
+            bt[k].disabled="disabled";
+        }
+    }
+    /*按钮可用*/
+    function enabled(){
+        var bt=document.getElementsByTagName('button');
+        for(var k= 0,l=bt.length;k<l;k++){
+            bt[k].disabled="";
+        }
+    }
     /*可视化排序*/
     function paixu() {//每500毫秒，进行一次比较，同时也要有i和j的变化，不能有循环
         if (area.childElementCount > 0) {
-            var bt=document.getElementsByTagName('button');
-            for(var k= 0,l=bt.length;k<l;k++){
-                bt[k].disabled="disabled";
-            }
+            disabled();
+            var time;/*
+            for(var i= 0,len1=area.childElementCount-1;i<len1;i++){
+                for(var j= 0,len2=len1-i;j<len2;j++){
+                    time=setTimeout(swap(i,j),50);
+                    clearTimeout(time);
+                }
+            }*/
             var i = 0, j = 0, len = area.childElementCount - 1;
-            var int = setInterval(function () {
+            var int = setInterval(function () {//冒泡排序
                 if (i == len) {
                     clearInterval(int);
-                    for(var k= 0,l=bt.length;k<l;k++){
-                        bt[k].disabled="";
-                    }
+                    enabled();
                 }
                 if (j == len - i) {
                     i++;
                     j = 0;
                 }
-                var h1=+area.childNodes[j].style.height.split("px")[0];//获取高度值，转化为数字类型，用来比较
-                var h2=+area.childNodes[j+1].style.height.split("px")[0];
-                if (h1>h2) {
-                    area.childNodes[j].style.height = area.childNodes[j + 1].style.height;
-                    area.childNodes[j + 1].style.height=h1+"px";
-                }
-                j++;
+                swap(j++);
             }, 50);
-
         }else{
             alert("请输入值");
         }

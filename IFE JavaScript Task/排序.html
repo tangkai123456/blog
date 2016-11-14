@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="insert()">插入排序</button>
+<button onclick="simpleSelect()">简单选择排序</button>
+<script>
+    /*var arr=[];
+    for(var i=0;i<5000;i++){
+        arr.push(~~(Math.random()*5000));
+    }*/
+    var arr=[2,3,4,1,2,3,5,1];
+    function insert(){
+        var d1=+new Date();
+        var arr1=[arr[0]];
+        for(var i= 0,len=arr.length-1;i<len;i++){
+            var x=arr[i+1];
+            var j=i+1;
+            while(x<arr1[j-1]){
+                arr1[j]=arr1[j-1];/*后移*/
+                j--;
+            }
+            arr1[j]=x;
+        }
+        var d2=+new Date();
+        console.log(d2-d1);
+        console.log(arr1);
+    }
+    function simpleSelect(){
+        console.log(arr);
+        for(var i= 0,len=arr.length;i<len;i++){
+            var x=arr[i];
+            var ind=0;
+            for(var j= i,len1=len-i;j<len1;j++){
+                if(x>arr[j+1]){
+                    x=arr[j+1];
+                    ind=j+1;
+                }
+            }
+            if(ind!==0){
+                var c=arr[i];
+                arr[i]=arr[ind];
+                arr[ind]=c;
+                console.log(arr);
+            }
+        }
+        console.log(arr);
+    }
+</script>
+</body>
+</html>

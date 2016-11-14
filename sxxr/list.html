@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>商品列表</title>
+</head>
+<body>
+<div class="container">
+    <form class="form-horizontal navbar-fixed-top se" role="form">
+        <div class="form-group margin0">
+            <label for="search" class="col-sm-2 control-label">搜索</label>
+
+            <div class="col-sm-8">
+                <input type="search" class="form-control" id="search" placeholder="搜索...">
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+
+    <div class="table-responsive list">
+        <table class="table table-hover table-striped content">
+            <caption>
+                <h1>商品列表</h1>
+                <ul class="selectType">
+                    <li>
+                        <button class="btn btn-default">烟 <span class="badge bYan">42</span></button>
+                    </li>
+                    <li>
+                        <button class="btn btn-default">酒 <span class="badge bJiu">42</span></button>
+                    </li>
+                    <li>
+                        <button class="btn btn-default">茶 <span class="badge bCha">42</span></button>
+                    </li>
+                    <li>
+                        <button class="btn btn-default">其他 <span class="badge bQita">42</span></button>
+                    </li>
+                </ul>
+            </caption>
+            <tr class="th">
+                <th class="col-md-2">商品名</th>
+                <th class="col-md-2">单价（元）</th>
+                <th class="col-md-2">剩余数量（个、斤）</th>
+                <th class="col-md-2">请输入购买数量（个、斤）</th>
+                <th class="col-md-2">已选价格</th>
+                <th class="col-md-2 hidden-xs">种类<span class="glyphicon glyphicon-remove del"></span></th>
+                <th class="col-md-2 hidden-xs">操作<span class="glyphicon glyphicon-remove del"></span></th>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<aside class="buy col-md-2 col-sm-3">
+    <div class="closeFix toggleC">-</div>
+    <div>总价：<span class="allPrice"></span>元</div>
+    <div>数量：<span class="sum"></span></div>
+    <button type="button" class="btn btn-warning sub" data-toggle="modal" data-target="#myModal">提交订单</button>
+</aside>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">订单</h4>
+            </div>
+            <div class="modal-body table-responsive">
+                <table class="table table-hover table-condensed gouwuche">
+                    <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            产品
+                        </th>
+                        <th>
+                            已选数量
+                        </th>
+                        <th>
+                            总价
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody class="gwcList">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">总价:</h3>
+                    </div>
+                    <div class="panel-body zongjia">
+                        0
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary submit">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='cc'>
+    <div class='alert alert-warning alert-dismissible fade in' role='alert'>
+        <strong>
+            超出库存啦
+        </strong>
+        请修改输入值
+    </div>
+</div>
+<button type="button" class="btn btn-primary hide btnFixed toggleC col-lg-1 col-sm-3">在此提交</button>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<link rel="stylesheet" media="screen" href="css/list.css">
+<script src="js/list.js"></script>
+</body>
+</html>

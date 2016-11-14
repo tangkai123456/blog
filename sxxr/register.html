@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="reg" ng-controller="regCtrl">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+    <div class="container">
+        <form role="form" method="post" class="col-lg-4 login" name="loginForm" novalidate>
+            
+            <div class="form-group">
+                <label for="phone">手机号</label>
+                <input type="text" class="form-control" id="phone" placeholder="请输入手机号" name="phone" required autofocus ng-model="phone" maxlength="11" minlength="11">
+                <span ng-show="loginForm.phone.$dirty&&loginForm.phone.$invalid">
+                    <span ng-show="loginForm.phone.$error.required">手机号不能为空</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="pwd">密码</label>
+                <input type="password" class="form-control" id="pwd" placeholder="请输入密码" name="pwd" required ng-model="pwd" maxlength="20">
+                <span ng-show="loginForm.pwd.$dirty &&loginForm.pwd.$invalid">
+                    <span ng-show="loginForm.pwd.$error.required">密码不能为空</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="pwd1">确认密码</label>
+                <input type="password" class="form-control" id="pwd1" placeholder="请输入密码" name="pwd1" required ng-model="pwd1" maxlength="20">
+                <span ng-show="loginForm.pwd1.$dirty">
+                    <span ng-show="loginForm.pwd1.$error.required">密码不能为空</span>
+                    <span ng-show="yanzheng()">两次密码不相同</span>
+                </span>
+            </div>
+            <button type="submit" class="btn btn-default reg" ng-click="register()" ng-disabled="loginForm.pwd.$invalid||loginForm.pwd.$error.required||loginForm.pwd1.$error.required||yanzheng()">注册</button>
+      </form>
+  </div>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <link rel="stylesheet" href="css/login.css"/>
+  <script src="js/reg.js"></script>
+</body>
+</html>
