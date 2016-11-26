@@ -1,0 +1,23 @@
+*{margin: 0;padding: 0;font-family: "MicroSoft YaHei"}
+body{background: rgb(240,240,240)!important;padding-top: 50px;}
+
+h4{white-space:nowrap!important;overflow: hidden!important;text-overflow:ellipsis!important;}
+.bg-nav{background: rgb(240,240,240)}
+
+.navbar{margin:0!important;border:none!important;background: none!important}
+.nav-logo{height:100%;}
+.navbar-right>li:hover{background: rgb(220,220,220);}
+
+.bg-zixun{background: url(../img/bg.jpg);background-size: cover;height:200px;display: flex;align-items: center;color: white}
+
+.news{margin-top:40px;}
+.news .each-new{padding:15px;background: white;box-shadow: 2px 2px 10px gray;margin-bottom:15px;}
+.each-new .media-body h4{margin-bottom:10px;}
+
+.aside-hot{background: white}
+.aside-hot .hot-quote{padding: 15px 15px 0}
+.aside-hot .hot-quote h2{margin:0;}
+.each-hot{padding-bottom:15px;}
+
+footer{height:100px;background:gray;color:white;text-align: center;padding:15px 0;line-height: 30px}
+footer a{color:white;text-decoration:none;}

@@ -1,0 +1,17 @@
+*{margin: 0;padding: 0;font-family: "MicroSoft YaHei"}
+body{background: rgb(240,240,240)!important;padding-top: 50px;}
+
+h4{white-space:nowrap!important;overflow: hidden!important;text-overflow:ellipsis!important;}
+
+.bg-nav{background: rgb(240,240,240)}
+
+.navbar{margin:0!important;border:none!important;background: none!important}
+.nav-logo{height:100%;}
+.navbar-right>li:hover{background: rgb(220,220,220);}
+
+.bg-anli{background: url(../img/bg.jpg);background-size: cover;height:200px;color:white!important;}
+
+.each-anli{padding:15px;background: white;margin-bottom:15px;display: flex;justify-content: center;flex-wrap: wrap}
+
+footer{height:100px;background:gray;color:white;text-align: center;padding:15px 0;line-height: 30px}
+footer a{color:white;text-decoration:none;}
