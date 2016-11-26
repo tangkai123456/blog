@@ -6,6 +6,14 @@ window.onload=function(){
 		circle[i].style.lineHeight=width+"px";
 	}
 }
+window.onresize=function(){
+	var circle=document.getElementsByClassName("nav-circle");
+	var width=circle[0].offsetWidth;
+	for(var i=0,len=circle.length;i<len;i++){
+		circle[i].style.height=width+"px";
+		circle[i].style.lineHeight=width+"px";
+	}
+}
 
 var my=angular.module("my",["ngRoute"]);
 my.config(["$routeProvider",function($routeProvider){
@@ -20,5 +28,25 @@ my.config(["$routeProvider",function($routeProvider){
 }]);
 
 my.controller("Ctrl",function ($scope) {
-	$scope.page1=[]
+	$scope.page1=[
+	"images/gallery/p1.jpg",
+	"images/gallery/p2.jpg",
+	"images/gallery/p3.jpg",
+	"images/gallery/p4.jpg",
+	"images/gallery/p5.jpg",
+	"images/gallery/p6.jpg",
+	"images/gallery/p7.jpg",
+	"images/gallery/p8.jpg",
+	"images/gallery/p9.jpg",
+	];
+	$scope.page2=[
+	"images/team1.jpg",
+	"images/team2.jpg",
+	"images/team3.jpg"
+	]
+	$scope.page3=$scope.page1.slice(0,6);
+	$scope.ab=function (src) {
+		$scope.modelSrc=src;
+	}
+	$scope.modelSrc="";
 })
