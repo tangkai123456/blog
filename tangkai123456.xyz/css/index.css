@@ -101,4 +101,4 @@
 .bg-gray img{height:200px;border-radius: 20px;padding:5px;border:1px solid skyblue;position:absolute;transition:transform .5s}
 
 .bg-gray>div a:hover img{background:gray;transform:scale(1.2)}
-.bg-gray>div a:hover{animation-play-state:paused;}
+.bg-gray>div:hover a{animation-play-state:paused;}

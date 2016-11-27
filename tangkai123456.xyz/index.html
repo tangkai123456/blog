@@ -6,6 +6,29 @@
 	<title>唐凯的个人主页</title>
 </head>
 <body>
+    <div class="loading">
+        <div class="double-bouncel"></div>
+        <div class="double-bounce2"></div>
+        <div id="rate">0%</div>
+    </div>
+    <style rel="stylesheet">
+        
+        .loading{width:100%;height:5000px;position:relative;background: white;z-index:5000;}
+        .double-bouncel,.double-bounce2{width:50px;height:50px;border-radius:50%;background-color:#0062e0;left:50%;top:300px;position:absolute;opacity:.6;transform:scale(0);margin-left:-15px;}
+        #rate{position:absolute;top:350px;left:50%;}
+        .double-bouncel{animation:bounce 2s infinite ease-in-out}
+        .double-bounce2{animation:bounce 2s infinite ease-in-out 1s}
+
+        @keyframes bounce {
+            0%,100%{
+                transform: scale(0);
+            }
+            50%{
+                transform:scale(1);
+            }
+        }
+    </style>
+
    <div class="progress" data-1500="opacity:0" data-2000="opacity:1">
       <div class="progress-line" data-0="background:hsl(200,100%,50%)" data-end="background:hsl(0,100%,50%)"></div>
       <img src="images/hero.png" alt="" class="superman" data-0="top:0%" data-end="top:90%">
@@ -108,16 +131,16 @@
 <div class="bg-gray" data-9500="opacity:0" data-9800="opacity:1" data-11000="">
    <h2>作品展示</h2>
    <div>
-      <a href="#1">
+      <a href="../bootstrap网页/1.html" target="_blank">
          <img src="images/web1.png" alt="">
       </a>
-      <a href="#1">
+      <a href="../全屏滚动/index.html" target="_blank">
          <img src="images/web2.png" alt="">
       </a>
-      <a href="#1">
+      <a href="../唐凯10.1/唐凯_overwatch.html" target="_blank">
          <img src="images/web3.png" alt="">
       </a>
-      <a href="#1">
+      <a href="../angular+bootstrap网页/index.html" target="_blank">
          <img src="images/web4.png" alt="">
       </a>
    </div>
@@ -127,15 +150,12 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" href="lib/fixed-positioning.css">
 <script src="lib/skrollr.min.js"></script>
+<!-- 加载动画 -->
+  <script src="js/loading.js"></script>
 <script>
    var s=skrollr.init({
       edgeStrategy: "set"
    });
-   window.onscroll=function(){
-      var b=document.documentElement.scrollTop||document.body.scrollTop;
-      $("#scroll").text(b);
-      
-   }
 </script>
 
 <link rel="stylesheet" href="css/index.css">
