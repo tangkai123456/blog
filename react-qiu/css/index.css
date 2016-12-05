@@ -1,0 +1,123 @@
+
+
+/* 公共样式开始 */
+*{margin:0;padding:0}
+body,html{font-family: "MicroSoft YaHei";background:#f7f7f7}
+.container{max-width:980px;}
+.clear{clear:both}
+/* 公共样式结束 */
+/* 导航开始 */
+.nav-header{height:82px;background:#ffd52b;}
+.nav-header .nav-left{display:flex;}
+.nav-left ul{display:flex;list-style:none;padding:0;margin:0 10px;}
+.nav-left ul a{font-weight:400;color:#300;margin-right: 1px;padding: 0 14px;text-align: center;line-height: 82px;display: block;font-size: 16.5px;color: #7A4624;height: 82px;border-bottom: 4px solid #ffd52b;}
+.nav-left ul a:hover{border-bottom-color: #ffe36f;background: #ffe36f;text-decoration: none}
+.nav-header .nav-right{display:flex;align-items:center;height:82px;}
+.nav-header .nav-right img{width:38px;height:38px;margin-right:10px;}
+.nav-header .nav-right a{font-size: 14px;line-height: 38px;text-decoration:none;color:#300;}
+
+.xs-logo img{width:95px;height:31px}
+.xs-ctrl{height:48px}
+.xs-ctrl a{display: inline-block;width:26px;height:26px;margin:12px;margin-bottom:10px;background:url("../images/qiushi_iphone.png") no-repeat;background-size: 200px}
+.xs-ctrl a:first-of-type{background-position: -35px -4px}
+.xs-ctrl a:last-of-type{background-position:0 -3px; position:relative; }
+.xs-ctrl .user-ctrl{display:none;position: absolute;right: -27px;top:-12px;background: #fff;z-index: 999;width: 150px;margin: 48px 0 0;box-shadow: 0 2px 8px rgba(0,0,0,.5);} 
+.xs-ctrl .user-ctrl div{padding:16px;line-height:16px;color:black;box-shadow: inset 0 -1px 0 #dedede;}
+.xs-ctrl a:last-of-type:focus .user-ctrl{display:block}
+.xs-nav{background:white;padding:6px 0}
+.xs-nav>ul{display:flex!important;flex-wrap:wrap;list-style:none;padding:0;margin:0;width:100%;}
+.xs-nav li{ display: block;float: left;width: 20%;height: 30px;line-height: 30px;text-align: center;background-image: url("../images/colline.png");background-repeat: no-repeat;background-position: right center;}.xs-nav a{color:black;text-decoration: none}
+.xs-nav .noLine{background:none}
+@media screen and (max-width:768px){
+	.nav-header{height:48px;line-height:48px;background:#ffba15}
+}
+/* 导航结束 */
+
+/* 主体开始 */
+.main{padding-top:20px;padding-bottom:20px}
+@media screen and (max-width:768px){
+	.main{margin-top:62px}
+}
+/* 主体结束 */
+
+/* 主体左边开始 */
+.content-left .article{background:white;padding:18px 20px;margin-bottom:15px}
+.article .article-author{display:flex;align-items:center;font-size:14px;font-weight: 400;margin-bottom:17px}
+.article .user-header img{width:35px;height:35px;border-radius: 35px;margin-right:10px;}
+.article .user-name{color:#9b8878;text-decoration: none}
+.article .user-name:hover{color:black;}
+.article .user-sex-icon{display:inline-block;width:32px;height:16px;line-height:16px;background: url("../images/man.png");font-size:10px;padding-left:16px;color:white;background-size: cover}
+.article .atricle-text{font-size:16px;font-size: 16px;line-height: 1.8;word-wrap: break-word;color: #333;text-decoration: none;margin-bottom:10px;}
+.article .comment-sum{margin:20px 0 10px;font-size:12px;color:#999}
+.article .comment-sum a{color:#999;text-decoration: none}
+.article .comment-sum a:hover{color:black;}
+.article .comment-icon{margin:5px 0 0 8px}
+.article .comment-icon a{display:inline-block;width:30px;height:30px;margin-right:20px}
+.article .comment-icon a:nth-of-type(1){background:url("../images/funny.png")}
+.article .comment-icon a:nth-of-type(2){background:url("../images/not_funny.png")}
+.article .comment-icon a:nth-of-type(3){background:url("../images/comment.png")}
+.article .share-icon{position:relative;}
+.article .share-icon a{display:inline-block;width:24px;height:24px;margin-left:10px;background:url("../images/icongroup.png") no-repeat;}
+.article .share-icon a:nth-of-type(1){background-position: 0 -79px}
+.article .share-icon a:nth-of-type(2){background-position: 0 -151px}
+.article .share-icon a:nth-of-type(3){background-position: 0 -127px}
+.article .share-icon a:nth-of-type(4){background-position: 0 -103px}
+.article .share-icon figure{display: none;position: absolute;width: 162px;margin: -250px 0 0;padding: 10px;background: #fff;border: 1px solid #dedede;box-shadow: 0 1px 1px rgba(0,0,0,.1);font-size: 12px;color: #999;text-align: center;line-height: 1.6;}
+.article .share-icon a:nth-of-type(1):hover+figure{display:block}
+.article .god-comment{display:flex;align-items:center;text-decoration: none;color:black;margin-top:15px;}
+.article .god-comment .god{width:15px;height:15px;margin-right:8px;}
+.article .god-comment .good{height:13px;margin:0 2px 0 4px}
+
+.page{line-height:40px}
+.page button{height:40px;padding:0 16px;border:none;background:white;margin-right:4px}
+.page span{padding:0 8px 0 4px}
+.page .activeBtn{background:#ffaa14;color:white}
+
+@media screen and (max-width:768px){
+	.comment-icon{width:100%}
+	.comment-icon a:last-of-type{float:right!important}
+	.page{display:flex;flex-wrap:wrap;justify-content:center}
+	.page .next{display:block;width:100%;margin:12px 0 0}
+}
+/* 主体左边结束 */
+
+/* 主体右边开始 */
+.content-aside{padding:0;margin-left:-10px;font-size:12px;line-height: 160%}
+.content-aside .one-tip{margin: 15px 0 20px}
+.one-tip h3{margin: 0 0 15px;padding: 0 0 0 10px;font-size: 14px;font-weight: 700;border-left: 4px solid #fccb33}
+.qiu-tip img{margin-right:10px;}
+.qiu-tip p{margin:0;}
+
+.content-aside .qiu-hot{display:flex;flex-wrap:wrap;justify-content:space-around;text-align: center} 
+.qiu-hot span{display:inline-block;height:116px;overflow: hidden}
+.qiu-hot img{width:146px;height:146px}
+.qiu-hot a{color:#524d47;text-decoration: none}
+
+.hot-talk .hot-talk-list{display:flex;flex-wrap:wrap;}
+.hot-talk .hot-talk-list a{margin: 0 7px 7px 0;padding: 4px 7px;background: #fff;color:#6a5c4e;text-decoration: none}
+.hot-talk .hot-talk-list a:hover{color:#000}
+/* 主体右边结束 */
+
+/* footer开始 */
+footer{background:white}
+.foot-nav{display:flex;padding-top:20px;border-bottom:1px solid #efefef;padding:20px 0}
+.foot-nav ul{width:20%;list-style:none;padding:0;margin:0}
+.foot-nav ul a{color:#666;text-decoration: none;}
+.foot-nav ul a:hover{color:#300}
+.foot-nav ul li:first-child{font-size:18px;}
+.foot-nav ul li{line-height:1.8}
+.foot-copyright{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;padding:20px 0}
+.foot-copyright a{color:#333;text-decoration: none}
+.foot-copyright a:hover{color:#333}
+.xs-foot-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:space-around}
+.xs-foot-nav ul a{display:inline-block;text-decoration:none;color:black;}
+.xs-foot-nav .xs-foot-nav-header li{width:25%;text-align: center;height:40px;line-height:40px;position:relative;z-index:2}
+.xs-foot-nav .xs-foot-nav-header a:hover{border-bottom:2px #ff9715 solid;color:#ff9715}
+.xs-foot-nav-list{position:relavite;padding:15px 0 5px;border-top:1px solid gray;margin-top:-9px;}
+.xs-foot-nav-list li{width:45%;border:1px solid #ddd;border-radius: 2.5px;height:32px;line-height:35px;text-align: center;font-size:12px;margin-bottom:10px}
+.xs-foot-nav-list ul:last-of-type li{border:none;width:auto;font-size:16px;width:32px;height:25px;}
+.xs-foot-nav-list ul:last-of-type div{font-size:12px;color:#999}
+@media screen and (max-width:768px){
+	footer{background:none}
+}
+/* footer结束 */
