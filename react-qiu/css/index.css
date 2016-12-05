@@ -3,8 +3,9 @@
 /* 公共样式开始 */
 *{margin:0;padding:0}
 body,html{font-family: "MicroSoft YaHei";background:#f7f7f7}
-.container{max-width:980px;}
+.container{max-width:1010px;}
 .clear{clear:both}
+a{text-decoration: none!important}
 /* 公共样式结束 */
 /* 导航开始 */
 .nav-header{height:82px;background:#ffd52b;}
@@ -18,25 +19,26 @@ body,html{font-family: "MicroSoft YaHei";background:#f7f7f7}
 
 .xs-logo img{width:95px;height:31px}
 .xs-ctrl{height:48px}
-.xs-ctrl a{display: inline-block;width:26px;height:26px;margin:12px;margin-bottom:10px;background:url("../images/qiushi_iphone.png") no-repeat;background-size: 200px}
-.xs-ctrl a:first-of-type{background-position: -35px -4px}
-.xs-ctrl a:last-of-type{background-position:0 -3px; position:relative; }
+.xs-ctrl span{display: inline-block;width:26px;height:26px;margin:12px;margin-bottom:10px;background:url("../images/qiushi_iphone.png") no-repeat;background-size: 200px}
+.xs-ctrl span:first-of-type{background-position: -35px -4px}
+.xs-ctrl span:last-of-type{background-position:0 -3px; position:relative; }
 .xs-ctrl .user-ctrl{display:none;position: absolute;right: -27px;top:-12px;background: #fff;z-index: 999;width: 150px;margin: 48px 0 0;box-shadow: 0 2px 8px rgba(0,0,0,.5);} 
 .xs-ctrl .user-ctrl div{padding:16px;line-height:16px;color:black;box-shadow: inset 0 -1px 0 #dedede;}
-.xs-ctrl a:last-of-type:focus .user-ctrl{display:block}
+.xs-ctrl .user-ctrl a{color:black}
+.xs-ctrl span:last-of-type:hover .user-ctrl{display:block}
 .xs-nav{background:white;padding:6px 0}
 .xs-nav>ul{display:flex!important;flex-wrap:wrap;list-style:none;padding:0;margin:0;width:100%;}
 .xs-nav li{ display: block;float: left;width: 20%;height: 30px;line-height: 30px;text-align: center;background-image: url("../images/colline.png");background-repeat: no-repeat;background-position: right center;}.xs-nav a{color:black;text-decoration: none}
 .xs-nav .noLine{background:none}
 @media screen and (max-width:768px){
-	.nav-header{height:48px;line-height:48px;background:#ffba15}
+	.nav-header{height:48px;line-height:48px;background:#ffba15;margin-bottom:72px}
 }
 /* 导航结束 */
 
 /* 主体开始 */
 .main{padding-top:20px;padding-bottom:20px}
 @media screen and (max-width:768px){
-	.main{margin-top:62px}
+	.main{}
 }
 /* 主体结束 */
 
@@ -117,7 +119,79 @@ footer{background:white}
 .xs-foot-nav-list li{width:45%;border:1px solid #ddd;border-radius: 2.5px;height:32px;line-height:35px;text-align: center;font-size:12px;margin-bottom:10px}
 .xs-foot-nav-list ul:last-of-type li{border:none;width:auto;font-size:16px;width:32px;height:25px;}
 .xs-foot-nav-list ul:last-of-type div{font-size:12px;color:#999}
+
+.xs-foot-nav2 li{width:25%;text-align: center;background-image: url("../images/colline.png");background-repeat: no-repeat;background-position: right center;}
+.xs-foot-nav2 li:last-of-type{background:none}
+.xs-foot-nav2 ul{padding-bottom:15px;border-bottom:1px solid lightgray;}
+
+.xs-copyright{text-align: center;color:#999;}
+.xs-copyright ul{display:flex;justify-content:center;list-style:none;}
+.xs-copyright ul a{margin:10px;color:#999;text-decoration: none}
 @media screen and (max-width:768px){
 	footer{background:none}
 }
 /* footer结束 */
+
+/* 用户管理开始 */
+
+.ctrl-user-header{position:relative;margin-bottom:20px;height:280px;background: url("../images/usercover.jpg") no-repeat;background-size:100% 220px;display:flex;}
+.ctrl-user-header::before{content:"";display:block;overflow: hidden}
+.ctrl-user-header .user-icon{position:relative;z-index:2;margin:32px 0 0 30px;width: 210px;height: 210px;padding: 8px;background: #fff;border: 1px solid #dedede;box-shadow: 0 2px 5px rgba(0,0,0,.1);}
+.ctrl-user-header .username{margin:157px 0 0 50px;color:white}
+.ctrl-user-header .user-nav{border:1px solid #dedede;border-top:none;background:white;list-style:none;display:flex;position:absolute;height:63px;top:220px;left:0;width:100%;justify-content:center;align-items:center;font-size:16px;}
+.ctrl-user-header .user-nav a{padding:20px;color:#9b8878;font-weight: 700}
+.ctrl-user-header .user-nav a:hover{color:black}
+.ctrl-user-header .user-nav a:focus{box-shadow: 0 -4px 0 #794627 inset}
+.ctrl-left{padding:0;width:26%;}
+.ctrl-tip{background:#fff;border:1px solid #e8e8e8;margin-bottom:15px;padding-bottom:14px}
+.ctrl-tip h3{padding:14px 20px;font-size:14px;border-bottom:1px solid #e8e8e8;margin:0 0 14px;font-weight: 700}
+.ctrl-tip ul{list-style:none;padding:0 20px;line-height: 2}
+.ctrl-tip>div{padding:0 20px;margin-bottom:14px}
+.ctrl-tip li{position:relative;}
+.ctrl-tip li span{display: inline-block;position:absolute;left:58%}
+.ctrl-right{width:69%;}
+.home-one{background:#fff;padding:15px;display:flex;position:relative;margin-bottom:20px;color:#949494}
+.home-one .time{width:130px;margin-right:30px;color:#d6d6d6}
+.home-one .time span{position:absolute}
+.time .month{font-size:35px;left:19px;top:12px;}
+.time .gang{font-size:38px;left:56px;top:14px}
+.time .date{font-size:24px;left:70px;top:32px;}
+.home-one p{margin:14px 0;padding:0}
+.home-one .username{color:#333;margin:0 3px}
+.home-one .home-content{color:#666}
+.home-one a{color:#949494}
+.home-one .showtime:hover{color:#333}
+.qiu-user img{width:60px;height:60px;border-radius: 60px;margin-right:10px}
+.comment-right{width:100%;}
+.comment-right .whos-comment{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8e8e8;padding-bottom:6px}
+.qiushi-delete{padding: 4px 8px 5px;margin-top: 2px;color: #c33;background-color: #fff;border: 1px solid #c33;font-size: 14px;border-radius: 2px;}
+.bindOther{line-height:40px;margin-bottom:15px}
+.bindOther a:first-child{color:white;display:inline-block;width:266px;height:40px;padding-left:78px;}
+.bindOther:nth-of-type(1) a{background:url("../images/wechat.png")}
+.bindOther:nth-of-type(2) a{background:url("../images/weibo.png")}
+.bindOther:nth-of-type(3) a{background:url("../images/QQ.png")}
+.bindOther:nth-of-type(4) a{background:url("../images/my_email.png")}
+.bindOther a:last-child{background:none;margin-left:3px}
+
+.hoverColor{color:#9b8878}
+.hoverColor:hover{color:#300}
+
+.changePwd{margin-bottom:14px;position:relative}
+.changePwd input{position:absolute;left:100px;top:0}
+
+.xs-icon{width:122px;height:122px;border-radius: 4px;padding:3px;border:1px solid #e6e4e4}
+.xs-icon img{width:100%;height:100%}
+.xs-username{color:#663107;font-size:16px}
+.personal-tip{width:100%!important}
+@media screen and (max-width:768px){
+	.ctrl-container{margin-top:88px}
+	.ctrl-user-header{background:none;display:flex;justify-content:center;align-items:center;background:white;}
+	.user-nav{border:none!important;border-top:1px solid #e8e8e8!important;border-bottom:1px solid #e8e8e8!important;}
+	.ctrl-left{width:100%}
+	.ctrl-tip{padding:0;float:left;width:50%}
+	.ctrl-tip h3{padding:5px 10px;margin:0}
+	.ctrl-tip ul{padding:0 10px;margin:0}
+	.ctrl-tip>div{padding:0 10px;margin:0}
+	.ctrl-right{width:100%}
+}
+/* 用户管理结束 */

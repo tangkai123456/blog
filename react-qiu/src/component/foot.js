@@ -133,7 +133,40 @@ export default class Foot extends React.Component {
 							<div>话题首字母搜索，点击字母链接可直接查看更多话题</div>
 						</ul>
 					</div>
+					<div className="xs-foot-nav2">
+						<ul>
+							<li>
+								<a href="#">热门排行</a>
+							</li>
+							<li>
+								<a href="#">8小时最新</a>
+							</li>
+							<li>
+								<a href="#">历史热门</a>
+							</li>
+							<li>
+								<a href="#">搞笑图片</a>
+							</li>
+						</ul>
+					</div>
+					<div className="xs-copyright">
+					<ul>
+						<li>
+							<a href="#">手机客户端</a>
+						</li>
+						<li>
+							<a href="#">在线反馈</a>
+						</li>
+						<li>
+							<a href="#">回到顶部</a>
+						</li>
+					</ul>
+					<p>
+						© Qiushibaike.com
+					</p>
 				</div>
+				</div>
+				
 			</footer>
 		)
 	}

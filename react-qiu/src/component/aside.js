@@ -23,20 +23,20 @@ export default class Aside extends React.Component {
 						<a href="#">
 							<figure>
 								<span>
-									<img src="../../images/app117924504.jpg" alt="hot"/>
+									<img src="../../images/app118104104.jpg" alt="hot"/>
 								</span>
 								<figcaption>
-									喜欢交朋友的来咯
+									这玩笑开大了
 								</figcaption>
 							</figure>
 						</a>
 						<a href="#">
 							<figure>
 								<span>
-									<img src="../../images/app117924504.jpg" alt="hot"/>
+									<img src="../../images/app118104104.jpg" alt="hot"/>
 								</span>
 								<figcaption>
-									喜欢交朋友的来咯
+									这玩笑开大了
 								</figcaption>
 							</figure>
 						</a>

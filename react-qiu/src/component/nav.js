@@ -1,53 +1,57 @@
 import React from 'react'
+import {
+	Link
+} from 'react-router'
 
 export default class Nav extends React.Component {
 	render() {
 		return (
-			<nav className="container-fluid nav-header">
+			<div>
+				<nav className="container-fluid nav-header">
 					<div className="container">
 						<div className="row">
 							<div className="pull-left nav-left">
-								<a href="#" className="hidden-xs"><img src="../../images/logo.png" alt=""/></a>
-								<a href="#" className="visible-xs xs-logo"><img src="../../images/logo-new.png" alt=""/></a>
+								<Link to="/main" className="hidden-xs"><img src="../../images/logo.png" alt=""/></Link>
+								<Link to="/main" className="visible-xs xs-logo"><img src="../../images/logo-new.png" alt=""/></Link>
 								<ul className="hidden-xs">
 									<li>
-										<a href="#">热门</a>
+										<Link to="/main">热门</Link>
 									</li>
 									<li>
-										<a href="#">24小时</a>
+										<Link to="/main">24小时</Link>
 									</li>
 									<li>
-										<a href="#">热图</a>
+										<Link to="/main">热图</Link>
 									</li>
 									<li>
-										<a href="#">文字</a>
+										<Link to="/main">文字</Link>
 									</li>
 									<li>
-										<a href="#">穿越</a>
+										<Link to="/main">穿越</Link>
 									</li>
 									<li>
-										<a href="#">糗图</a>
+										<Link to="/main">糗图</Link>
 									</li>
 									<li>
-										<a href="#">新鲜</a>
+										<Link to="/main">新鲜</Link>
 									</li>
 									<li>
-										<a href="#">投稿</a>
+										<Link to="/main">投稿</Link>
 									</li>
 								</ul>
 							</div>
 							<div className="pull-right nav-right hidden-xs">
 								<a href="#"><img src="../../images/missing.png" alt="" className="img-responsive"/></a>
-								<a href="#">赐我一个名字吧</a>
+								<Link to="/ctrl">赐我一个名字吧</Link>
 							</div>
 							<div className="visible-xs xs-ctrl pull-right">
-								<a href="#"></a>
-								<a href="#">
+								<span href="#"></span>
+								<span href="#">
 									<div className="user-ctrl">
-										<div>个人中心</div>
+										<div><Link to="/ctrl">个人中心</Link></div>
 										<div>退出</div>
 									</div>
-								</a>
+								</span>
 							</div>
 							<div className="clear"></div>
 							<div className="visible-xs xs-nav">
@@ -86,7 +90,9 @@ export default class Nav extends React.Component {
 							</div>
 						</div>
 					</div>
-			</nav>
+				</nav>
+				{this.props.children}
+			</div>
 		)
 	}
 }
