@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+/*var data=[];
+	$.ajax({
+		url:"content.json",
+		dataType:"json",
+		method:"get"
+	}).success(function(res){
+		data=res;
+		data.forEach(function(item){
+			$.ajax({
+				url:"comment"+(item.contentid+1)+".json",
+				dataType:"json",
+				method:"get"
+			}).success(function(res){
+				item.comment=res;
+			})
+		})
+	})
+	setTimeout(function(){
+		document.write(JSON.stringify(data))
+	},5000)*/
+	var data=[];
+	$.ajax({
+		url:"../json/user.json",
+		dataType:"json",
+		method:"get"
+	}).success(function(res){
+		data=res;
+		$.ajax({
+			url:"../json/content.json",
+			dataType:"json",
+			method:"get"
+		}).success(function(res){
+			data.forEach(function(item,i){
+				item.content=res[i]
+				$.ajax({
+					url:"../json/comment"+(i+1)+".json",
+					dataType:"json",
+					method:"get",
+				}).success(function(res){
+					item.content.comment=res.hot[0];
+				})
+			})
+
+		})
+	})
+	setTimeout(function(){
+		document.write(JSON.stringify(data))
+	},5000)
+</script>
+</body>
+</html>
