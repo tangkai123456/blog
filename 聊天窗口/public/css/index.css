@@ -1,0 +1,22 @@
+ *{margin:0;padding:0;font-family: "MicroSoft YaHei"}
+
+nav{line-height:60px;background:skyblue;box-shadow: 1px 1px 10px black;margin-top:15px;padding:0 30px!important;margin-bottom:15px}
+nav .form-group label{line-height: 16px;margin:0}
+
+.message{margin-top:20px;line-height:20px}
+.message .good{width:60px;text-align: center}
+.say .content{font-size:16px;}
+.say .user{font-size:12px}
+.say .user span:first-child{font-size:14px;font-weight: 700}
+.say .user span{margin:0 3px}
+
+.writeMessage{width:100%;resize:none;height:200px;padding:10px;box-shadow: 1px 1px 10px gray}
+
+.communite{height:600px;overflow: auto;}
+.communite::-webkit-scrollbar{height: 8px;width: 6px;}::-webkit-scrollbar-thumb {background: rgba(12,23,0,.2);}
+
+.inputBottom{margin-top:20px;width:100%}
+.inputBottom .input{width:80%}
+.inputBottom .input input{width:100%}
+
+ 
