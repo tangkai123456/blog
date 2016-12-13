@@ -1,0 +1,3 @@
+.point{background:lightgray;position: absolute;border-radius: 100%;display: flex;justify-content: center;align-items: center;font-size: 22px;}
+.point .name{text-align: center}
+.point .per{font-size:.5em;}
