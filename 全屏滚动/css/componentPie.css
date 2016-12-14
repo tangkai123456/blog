@@ -1,8 +1,0 @@
-.h5_component_pie{}
-
-canvas{position: absolute;left:0;top:0;width:100%;height:100%;}
-
-.text{position:absolute;z-index:1;text-align: center;height:24px;opacity: 0}
-
-.h5_component_pie_load .text{opacity: 1;transition: all 1s 1s}
-.h5_component_pie_leave .text{opacity: 0;transition: all 1s}

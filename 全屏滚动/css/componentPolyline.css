@@ -1,5 +1,0 @@
-canvas{position:absolute;left:0;top:0;width:100%;height:100%;}
-.text{position:absolute;font-size: 14px;text-align: center;bottom:-20px;transform:scale(.8);opacity: 0}
-
-.h5_component_polyline_load .text{opacity: 1;transition: all 2s 1.5s}
-.h5_component_polyline_leave .text{opacity:0;transition: all 1s}
