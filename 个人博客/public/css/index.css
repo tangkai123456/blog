@@ -1,0 +1,20 @@
+*{margin:0;padding:0;font-family: "MicroSoft YaHei";box-sizing:border-box}
+html,body,#main,.main{width:100%;height:100%;}
+ul{list-style:none}
+a{text-decoration: none;}
+/* 左侧导航 */
+nav{text-align:center;line-height:40px;font-size:18px;}
+nav ul{width:100%}
+nav li{transition: .5s}
+nav li:hover{background:#2a2a2a;}
+.nav{height:100%;width:200px;background:#654321;position:fixed;z-index:100;left:0;top:0;display:flex;justify-content:center}
+.nav-list{margin-top:50px;}
+.nav-list a{color:#fff}
+.nav-list-bottom{position:absolute;bottom:50px;left:0;text-align: center}
+.nav-list-bottom a{color:#fff}
+
+.sign-button-group{position:fixed;right:50px;top:0}
+.sign-button-group button{border:none;padding:12px;}
+/* 右侧内容区域 */
+.main-right{padding-left:200px;padding-top:40px;}
+.main-right .container{width:60%;margin:0 auto}
