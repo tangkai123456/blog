@@ -1,18 +1,16 @@
 import React from 'react'
 import $ from 'jquery'
 import {hashHistory} from 'react-router'
+import {connect} from 'react-redux'
+import * as actions from '../action/index.js'
+var getCookie=require("../js/getCookie.js")
 /**
  * 登录与注册的表单，通过判断属性返回不同的结构和进行不同的js
  */
-export default class SignInput extends React.Component{
+class SignInput extends React.Component{
 	constructor(props) {
 		super(props);
 		this.submit=this.submit.bind(this);
-	}
-	componentDidMount() {
-		if(document.cookie.split("name=")[1]){
-			hashHistory.push("/")
-		}
 	}
 	submit(e){
 		/*提交表单，阻止默认事件，判断是注册还是登录拼接不一样的url和data*/
@@ -38,25 +36,7 @@ export default class SignInput extends React.Component{
 			}
 		}
 		if(url&&data){
-			$.ajax({
-				url:url,
-				data:data,
-				xhrFields: {
-		            withCredentials: true
-		        },
-				type:"post",
-				dataType:"json",
-				success:function(res){
-					if(res.state===200){
-						/*设置过期时间*/
-						var d = new Date();
-						d.setTime(d.getTime()+(10*24*60*60*1000));
-						var expires = "expires="+d.toGMTString();
-						document.cookie="name="+res.user+";"+expires;
-						hashHistory.push("/");
-					}
-				}
-			})
+			this.props.signActions(url,data)
 		}
 	}
 	render(){
@@ -82,3 +62,8 @@ export default class SignInput extends React.Component{
 			)
 	}
 }
+
+export default connect(
+	state=>({loginState:state.loginState}),
+	actions
+)(SignInput)

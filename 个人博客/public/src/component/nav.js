@@ -1,19 +1,25 @@
 import React from 'react'
 import {Link} from 'react-router'
 import $ from 'jquery'
+import * as actions from '../action/index.js'
+import {connect} from 'react-redux'
 
-export default class Nav extends React.Component{
+var getCookie=require("../js/getCookie.js")
+
+class Nav extends React.Component{
+	constructor(props) {
+		super(props);
+		this.signout=this.signout.bind(this)
+	}
 	signout(){
-		document.cookie="name=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-		location.reload();
+		this.props.signActions("http://localhost:3000/sign/out")
+	}
+	componentDidMount() {
+		this.props.judgeIsLogin()
 	}
 	render(){
 		/*取出cookie中的name*/
-		let name=""
-		try{
-			name=document.cookie.split("name=")[1].split(";")[0];
-		}catch(e){
-		}
+		let name=getCookie(document.cookie,"name");
 		return  (
 			<div className="main">
 				<nav className="nav">
@@ -42,7 +48,7 @@ export default class Nav extends React.Component{
 						</Link>
 					</ul>
 				</nav>
-				{name?(
+				{this.props.loginState?(
 					<div className="sign-button-group">
 						welcome{name}
 						<a><button className="signout" onClick={this.signout}>退出</button></a>
@@ -59,7 +65,11 @@ export default class Nav extends React.Component{
 					</div>
 				</section>
 			</div>
-			
 			)
 	}
 }
+
+export default connect(
+	state=>({loginState:state.loginState}),
+	actions
+)(Nav)

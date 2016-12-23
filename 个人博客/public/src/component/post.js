@@ -1,25 +1,31 @@
 import React from 'react'
 import InputArea from './inputArea.js'
+import Article from './article.js'
+import {connect} from 'react-redux'
+import * as actions from '../action/index.js'
 
-export default class Post extends React.Component{
+class Post extends React.Component{
+	constructor(props) {
+		super(props);
+	}
+	componentDidMount() {
+		this.props.getData("posts/getOnePost/"+this.props.params.id)
+	}
 	render(){
-		return (
-				<div className="post">
-					<h2 className="post-head">
-						this is post head
-					</h2>
-					<div className="createTime">2011-11-11 05:15</div>
-						<div className="content">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, corporis, eveniet. Nihil excepturi qui illo hic magnam laborum, non esse fugit maxime similique corporis, deserunt nesciunt cum ducimus, maiores voluptatem.
-						</div>
-					<div className="comments-list">
-						<span>15赞</span><span>15评论</span>
-					</div>
-					<div className="aComment">
-						<span className="comment-user">zhangyu:</span>&nbsp;<span className="comment-content">this is a comment</span>
-					</div>
+		console.log(this.props.data)
+		if(this.props.data.length){
+			return (
+				<Article data={this.props.data[0]}>
 					<InputArea/>
-				</div>
+				</Article>
 			)
+		}else{
+			return <div></div>
+		}
 	}
 }
+
+export default connect(
+	(state)=>({data:state.getData}),
+	actions
+)(Post)

@@ -18,3 +18,5 @@ nav li:hover{background:#2a2a2a;}
 /* 右侧内容区域 */
 .main-right{padding-left:200px;padding-top:40px;}
 .main-right .container{width:60%;margin:0 auto}
+
+.manager-btn{float:right;border:none;padding:10px}

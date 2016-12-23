@@ -1,27 +1,35 @@
 import React from 'react'
 import {Link} from 'react-router'
+import Comment from './comment.js'
+import InputArea from './inputArea.js'
 
 export default class Article extends React.Component{
+	constructor(props) {
+		super(props);
+	}
+	componentDidMount() {
+		this.refs.content.innerHTML=this.props.data.content
+	}
 	render(){
+
 		return (
 			<article className="post">
-				<Link to="/post">
+				<Link to={"/post/"+this.props.data._id}>
 					<h2 className="post-head">
-						this is post head
+						{this.props.data.title}
 					</h2>
 				</Link>
-				<div className="createTime">2011-11-11 05:15</div>
-				<Link to="/post">
-					<div className="content">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, corporis, eveniet. Nihil excepturi qui illo hic magnam laborum, non esse fugit maxime similique corporis, deserunt nesciunt cum ducimus, maiores voluptatem.
+				<div className="createTime">{this.props.data.updateTime}<Link to={"/del/"+this.props.data._id}><button className="manager-btn">删除</button></Link><Link to={"/updatePost/"+this.props.data._id}><button className="manager-btn">修改</button></Link></div>
+				<Link to={"/post/"+this.props.data._id}>
+					<div className="content" ref="content">
+					{/*markdown内容需要插入innerHTML中*/}
 					</div>
 				</Link>
 				<div className="comments-list">
-					<span>15赞</span><span>15评论</span>
+					<span>{this.props.data.good.length}赞</span>&nbsp;<span>15评论 </span>
 				</div>
-				<div className="aComment">
-					<span className="comment-user">zhangyu:</span>&nbsp;<span className="comment-content">this is a comment</span>
-				</div>
+				{this.props.children}
+				<Comment/>
 			</article>
 			)
 	}

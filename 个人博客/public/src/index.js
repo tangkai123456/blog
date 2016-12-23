@@ -6,16 +6,23 @@ import Posts from './component/posts.js'
 import Post from './component/post.js'
 import Write from './component/write.js'
 import SignInput from './component/signInput.js'
+import {Provider} from 'react-redux'
+import {createStore,applyMiddleware} from 'redux'
+import reducer from "./reducer/index.js"
+import thunk from 'redux-thunk'
 
-
+const store=createStore(reducer,applyMiddleware(thunk))
 render(
-	<Router history={hashHistory}>
-		<Route path="/" component={Nav}>
-			<IndexRoute component={Posts}/>
-			<Route path="/post" component={Post}/>
-			<Route path="/write" component={Write}/>
-			<Route path="/sign/:type" component={SignInput}/>
-		</Route>
-	</Router>,
+	<Provider store={store}>
+		<Router history={hashHistory}>
+			<Route path="/" component={Nav}>
+				<IndexRoute component={Posts}/>
+				<Route path="/post/:id" component={Post}/>
+				<Route path="/write" component={Write}/>
+				<Route path="/sign/:type" component={SignInput}/>
+			</Route>
+		</Router>
+	</Provider>
+	,
 	document.getElementById("main")
 	)
