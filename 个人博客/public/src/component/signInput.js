@@ -11,6 +11,7 @@ class SignInput extends React.Component{
 	constructor(props) {
 		super(props);
 		this.submit=this.submit.bind(this);
+		this.checkPwd=this.checkPwd.bind(this)
 	}
 	submit(e){
 		/*提交表单，阻止默认事件，判断是注册还是登录拼接不一样的url和data*/
@@ -19,7 +20,8 @@ class SignInput extends React.Component{
 			data={};
 			/*注册事件*/
 		if(this.props.params.type=="signup"){
-			url="http://localhost:3000/sign/up";
+
+			url="sign/up";
 			data={
 				name:this.refs.username.value,
 				password:this.refs.password.value,
@@ -29,7 +31,7 @@ class SignInput extends React.Component{
 			}
 			/*登录事件*/
 		}else if(this.props.params.type=="signin"){
-			url="http://localhost:3000/sign/in";
+			url="sign/in";
 			data={
 				name:this.refs.username.value,
 				password:this.refs.password.value
@@ -37,6 +39,18 @@ class SignInput extends React.Component{
 		}
 		if(url&&data){
 			this.props.signActions(url,data)
+		}
+	}
+	checkPwd(){
+		var password=this.refs.password,
+			rePassword=this.refs.rePassword,
+			submit=this.refs.submit;
+		if(password.value==rePassword.value){
+			submit.disabled=false
+			rePassword.style.background=""
+		}else{
+			rePassword.style.background="red"
+			submit.disabled=true
 		}
 	}
 	render(){
@@ -48,16 +62,16 @@ class SignInput extends React.Component{
 				</div>
 				<div className="password">
 					<label htmlFor="password">密码</label>
-					<input id="password" type="text" placeholder="请输入密码" ref="password" required/>
+					<input id="password" type="password" placeholder="请输入密码" ref="password" required onChange={this.checkPwd}/>
 				</div>
 			{/*如果是注册，则显示确认密码*/}
 				{this.props.params.type=="signup"?(
 					<div className="rePassword">
 						<label htmlFor="rePassword">确认密码</label>
-						<input id="rePassword" type="text" placeholder="请再次输入密码"/>
+						<input id="rePassword" type="password" placeholder="请再次输入密码" ref="rePassword" onChange={this.checkPwd}/>
 					</div>
 					):""}
-				<button type="submit">提交</button>
+				<button type="submit" disabled ref="submit">提交</button>
 			</form>
 			)
 	}

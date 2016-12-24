@@ -33,7 +33,8 @@ exports.Post=mongolass.model("Post",{
 	title:{type:"string"},
 	content:{type:"string"},
 	good:[{type:"string"}],
-	updateTime:{type:"string"}
+	updateTime:{type:"string"},
+	pv:{type:"number"}
 })
 /*评论模型*/
 exports.Comment=mongolass.model("Comment",{

@@ -9,14 +9,13 @@ class Post extends React.Component{
 		super(props);
 	}
 	componentDidMount() {
-		this.props.getData("posts/getOnePost/"+this.props.params.id)
+		this.props.getData("posts/getOnePost/"+this.props.params.id,{flash:true})
 	}
 	render(){
-		console.log(this.props.data)
 		if(this.props.data.length){
 			return (
 				<Article data={this.props.data[0]}>
-					<InputArea/>
+					<InputArea postId={this.props.data[0]._id}/>
 				</Article>
 			)
 		}else{

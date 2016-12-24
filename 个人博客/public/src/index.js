@@ -20,6 +20,7 @@ render(
 				<Route path="/post/:id" component={Post}/>
 				<Route path="/write" component={Write}/>
 				<Route path="/sign/:type" component={SignInput}/>
+				<Route path="/updatePost/:id" component={Write}/>
 			</Route>
 		</Router>
 	</Provider>

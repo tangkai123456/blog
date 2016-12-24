@@ -1,32 +1,82 @@
 import React from 'react'
 import $ from 'jquery'
+import {connect} from 'react-redux'
+import * as actions from '../action/index.js'
+import {hashHistory} from 'react-router'
 
-export default class InputArea extends React.Component{
+class InputArea extends React.Component{
 	constructor(props) {
 		super(props);
 		this.submit=this.submit.bind(this);
 	}
 	submit(e){
 		e.preventDefault();
-		var url="http://localhost:3000/posts/";
-		var data={content:this.refs.content.value}
-		if(this.props.isPost){
-			url+="writePost";
-			data.title=this.refs.title.value;
+		var url="";
+		var data={};
+		if(this.props.defaultData){
+			data={content:this.refs.content.value,title:this.refs.title.value}
+				$.ajax({
+					url:"http://localhost:3000/posts/updatePost/"+this.props.defaultData._id,
+					data:data,
+					type:"post",
+					dataType:"json",
+					xhrFields: {
+				        withCredentials: true
+				    },
+					success:function(res){
+						if(res.state===200){
+							hashHistory.push("/")
+						}
+					}
+				})
 		}else{
-
-		}
-		$.ajax({
-			url:url,
-			type:"post",
-			data:data,
-			xhrFields: {
-		        withCredentials: true
-		    },
-			success:function(res){
-				console.log(res)
+			if(this.props.isPost){
+				data={content:this.refs.content.value,title:this.refs.title.value}
+				$.ajax({
+					url:"http://localhost:3000/posts/writePost",
+					data:data,
+					type:"post",
+					dataType:"json",
+					xhrFields: {
+				        withCredentials: true
+				    },
+					success:function(res){
+						if(res.state===200){
+							hashHistory.push("/")
+						}
+					}
+				})
+			}else{
+				data={content:this.refs.content.value};
+				$.ajax({
+					url:"http://localhost:3000/comments/writeComment/"+this.props.postId,
+					data:data,
+					type:"post",
+					dataType:"json",
+					xhrFields: {
+				        withCredentials: true
+				    },
+					success:function(res){
+						if(res.state===200){
+							/*由于不知名的原因，状态改变后视图却不会变化*/
+							this.props.getData("posts/getOnePost/"+this.props.postId)
+						}
+					}.bind(this)
+				})
 			}
-		})
+		}
+	}
+	componentDidUpdate() {
+		/*从修改页跳到发表页，会有数据留下来，所以要清空一次*/
+		if(this.props.defaultData){
+			this.refs.title.value=this.props.defaultData?this.props.defaultData.title:"";
+			this.refs.content.value=this.props.defaultData?this.props.defaultData.content:"";
+		}else{
+			if(this.refs.title){
+				this.refs.title.value=""
+			}
+			this.refs.content.value=""
+		}
 	}
 	render(){
 		return (
@@ -46,3 +96,8 @@ export default class InputArea extends React.Component{
 			)
 	}
 }
+
+export default connect(
+	()=>({}),
+	actions
+)(InputArea)

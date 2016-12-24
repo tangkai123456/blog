@@ -12,10 +12,11 @@ class Nav extends React.Component{
 		this.signout=this.signout.bind(this)
 	}
 	signout(){
-		this.props.signActions("http://localhost:3000/sign/out")
+		this.props.signActions("sign/out",{},true)
+		location.reload()
 	}
 	componentDidMount() {
-		this.props.judgeIsLogin()
+		this.props.signActions("sign/flashIn",{name:getCookie(document.cookie,"name"),password:getCookie(document.cookie,"password")},true)
 	}
 	render(){
 		/*取出cookie中的name*/

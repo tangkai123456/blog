@@ -1,11 +1,46 @@
 import React from 'react'
+import {Link} from 'react-router'
+import {connect} from 'react-redux'
+import * as actions from '../action/index.js'
+import {hashHistory} from 'react-router'
+import $ from 'jquery'
 
-export default class Comment extends React.Component{
+var getCookie=require("../js/getCookie.js")
+
+class Comment extends React.Component{
+	constructor(props) {
+		super(props);
+		this.delComment=this.delComment.bind(this)
+	}
+	delComment(){
+		$.ajax({
+			url:"http://localhost:3000/comments/delComment/"+this.props.postId+"/"+this.props.data._id,
+			type:"get",
+			dataType:"json",
+			xhrFields: {
+			    withCredentials: true
+		    },
+			success:function(res){
+				if(res.state===200){
+					/*由于不知名的原因，状态改变后视图却不会变化*/
+					this.props.getData("posts/getOnePost/"+this.props.postId)
+				}
+			}.bind(this)
+		})
+	}
 	render(){
 		return (
 				<div className="aComment">
-					<span className="comment-user">zhangyu:</span>&nbsp;<span className="comment-content">this is a comment</span>
+					<span className="comment-user">{this.props.data.name}:</span>&nbsp;<span className="comment-content">{this.props.data.content}</span>
+					{(getCookie(document.cookie,"name")===this.props.data.name)||(this.props.loginState===2)?
+						<button onClick={this.delComment}>删除</button>:""
+					}
 				</div>
 			)
 	}
 }
+
+export default connect(
+	(state)=>({loginState:state.loginState}),
+	actions
+)(Comment)

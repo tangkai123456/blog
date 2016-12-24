@@ -13,7 +13,7 @@ module.exports={
 			.exec()
 	},
 	/*通过文章id删除所有评论*/
-	delCommentByPostId:function(postId){
+	delCommentsByPostId:function(postId){
 		return Comment
 			.remove({postId:postId})
 			.exec()
@@ -24,7 +24,6 @@ module.exports={
 			.find({postId:postId})
 			.sort({_id:-1})
 			.addCreatedAt()
-			.contentToHtml()
 			.exec()
 	},
 	/*获取评论数*/
