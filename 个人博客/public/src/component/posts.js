@@ -13,7 +13,7 @@ class Posts extends React.Component{
 	}
 	render(){
 		return (
-			<div>
+			<div className="posts-list">
 				{this.props.Posts.map(function(item,i){
 					return <Article key={i} data={item} />
 				})}

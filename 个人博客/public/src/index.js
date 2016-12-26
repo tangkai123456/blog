@@ -10,6 +10,8 @@ import {Provider} from 'react-redux'
 import {createStore,applyMiddleware} from 'redux'
 import reducer from "./reducer/index.js"
 import thunk from 'redux-thunk'
+import PlaseWait from './component/pleaseWait.js'
+import '../css/index.css'
 
 const store=createStore(reducer,applyMiddleware(thunk))
 render(
@@ -21,6 +23,8 @@ render(
 				<Route path="/write" component={Write}/>
 				<Route path="/sign/:type" component={SignInput}/>
 				<Route path="/updatePost/:id" component={Write}/>
+				<Route path="/talk" component={PlaseWait}/>
+				<Route path="/about" component={PlaseWait}/>
 			</Route>
 		</Router>
 	</Provider>

@@ -3,6 +3,8 @@ import $ from 'jquery'
 import {connect} from 'react-redux'
 import * as actions from '../action/index.js'
 import {hashHistory} from 'react-router'
+import ajaxReturn from '../js/ajaxReturn.js'
+import Alert from 'react-s-alert'
 
 class InputArea extends React.Component{
 	constructor(props) {
@@ -26,7 +28,18 @@ class InputArea extends React.Component{
 					success:function(res){
 						if(res.state===200){
 							hashHistory.push("/")
+							Alert.success(res.info,{
+								effect:"slide",
+								timeout:2000
+							})
 						}
+						ajaxReturn(res)
+					},
+					error:function(){
+						Alert.error("朋友，你的网络出现问题了",{
+					    	effect:"slide",
+					    	timeout:2000
+					    })
 					}
 				})
 		}else{
@@ -43,11 +56,22 @@ class InputArea extends React.Component{
 					success:function(res){
 						if(res.state===200){
 							hashHistory.push("/")
+							Alert.success(res.info,{
+								effect:"slide",
+								timeout:2000
+							})
 						}
+						ajaxReturn(res)
+					},
+					error:function(){
+						Alert.error("朋友，你的网络出现问题了",{
+					    	effect:"slide",
+					    	timeout:2000
+					    })
 					}
 				})
 			}else{
-				data={content:this.refs.content.value};
+				data={content:this.refs.content.value,loginState:this.props.loginState};
 				$.ajax({
 					url:"http://localhost:3000/comments/writeComment/"+this.props.postId,
 					data:data,
@@ -58,10 +82,25 @@ class InputArea extends React.Component{
 				    },
 					success:function(res){
 						if(res.state===200){
+							if(this.refs.title){
+								this.refs.title.value=""
+							}
+							this.refs.content.value=""
 							/*由于不知名的原因，状态改变后视图却不会变化*/
 							this.props.getData("posts/getOnePost/"+this.props.postId)
+							Alert.success(res.info,{
+								effect:"slide",
+								timeout:2000
+							})
 						}
-					}.bind(this)
+						ajaxReturn(res)
+					}.bind(this),
+					error:function(){
+						Alert.error("朋友，你的网络出现问题了",{
+					    	effect:"slide",
+					    	timeout:2000
+					    })
+					}
 				})
 			}
 		}
@@ -81,23 +120,24 @@ class InputArea extends React.Component{
 	render(){
 		return (
 			<form className="input-area" onSubmit={this.submit}>
+
 			{
 				this.props.isPost?(	<div className="content-head">
 											<label htmlFor="head">主题：</label>
-											<input type="text" id="head" placeholder="this is head" ref="title" required/>
+											<input type="text" id="head" placeholder="this is head" ref="title" required maxLength="140"/>
 										</div>):""
 			}
 				
 				<div className="content-body">
-					<textarea name="" id="" cols="30" rows="10" placeholder="this is content" ref="content" required></textarea>
+					<textarea rows={this.props.isPost?"":"3"} placeholder={this.props.isPost?"输入内容":"评论一下"} ref="content" required maxLength={this.props.isPost?"":"200"}></textarea>
 				</div>
-				<button type="submit">提交</button>
+				<button type="submit" >提交</button>
 			</form>
 			)
 	}
 }
 
 export default connect(
-	()=>({}),
+	(state)=>({loginState:state.loginState}),
 	actions
 )(InputArea)

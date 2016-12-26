@@ -17,57 +17,58 @@ class SignInput extends React.Component{
 		/*提交表单，阻止默认事件，判断是注册还是登录拼接不一样的url和data*/
 		e.preventDefault();
 		var url="",
-			data={};
+			data={
+				name:this.refs.username.value,
+				password:this.refs.password.value,
+			};
 			/*注册事件*/
 		if(this.props.params.type=="signup"){
 
 			url="sign/up";
-			data={
-				name:this.refs.username.value,
-				password:this.refs.password.value,
-				avatar:"abc.png",
-				sex:"m",
-				summary:"this is summary"
-			}
 			/*登录事件*/
 		}else if(this.props.params.type=="signin"){
 			url="sign/in";
-			data={
-				name:this.refs.username.value,
-				password:this.refs.password.value
-			}
 		}
 		if(url&&data){
-			this.props.signActions(url,data)
+			this.props.signActions(url,data,false,true)
 		}
 	}
 	checkPwd(){
-		var password=this.refs.password,
-			rePassword=this.refs.rePassword,
-			submit=this.refs.submit;
-		if(password.value==rePassword.value){
-			submit.disabled=false
-			rePassword.style.background=""
+		if(this.props.params.type=="signup"){
+			var password=this.refs.password,
+				rePassword=this.refs.rePassword,
+				submit=this.refs.submit;
+			if(password.value==rePassword.value){
+				submit.disabled=false
+				rePassword.style.background=""
+			}else{
+				rePassword.style.background="red"
+				submit.disabled=true
+			}
 		}else{
-			rePassword.style.background="red"
-			submit.disabled=true
+			this.refs.submit.disabled=false
 		}
+	}
+	componentDidMount() {
+		this.refs.username.focus();
 	}
 	render(){
 		return (
 			<form className="signInput" onSubmit={this.submit}>
 				<div className="username">
-					<label htmlFor="username">用户名</label>
+					<label htmlFor="username">用户名:</label>
 					<input id="username" type="text" placeholder="请输入用户名" ref="username" required/>
+					<div className="input-check">用户名为6-20个字符,不能使用空格</div>
 				</div>
 				<div className="password">
-					<label htmlFor="password">密码</label>
+					<label htmlFor="password">密码:</label>
 					<input id="password" type="password" placeholder="请输入密码" ref="password" required onChange={this.checkPwd}/>
+					<div className="input-check">密码需要6-20个字符,不能使用空格</div>
 				</div>
 			{/*如果是注册，则显示确认密码*/}
 				{this.props.params.type=="signup"?(
 					<div className="rePassword">
-						<label htmlFor="rePassword">确认密码</label>
+						<label htmlFor="rePassword">确认密码:</label>
 						<input id="rePassword" type="password" placeholder="请再次输入密码" ref="rePassword" onChange={this.checkPwd}/>
 					</div>
 					):""}

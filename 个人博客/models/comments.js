@@ -7,9 +7,15 @@ module.exports={
 			.exec()
 	},
 	/*通过用户名和评论id删除评论*/
-	delCommentById:function (commentId,name){
+	delCommentByIdAndName:function (commentId,name){
 		return Comment
 			.remove({name:name,_id:commentId})
+			.exec()
+	},
+	/*通过评论id删除评论*/
+	delCommentById:function(commentId){
+		return Comment
+			.remove({_id:commentId})
 			.exec()
 	},
 	/*通过文章id删除所有评论*/

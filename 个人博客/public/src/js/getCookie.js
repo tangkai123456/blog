@@ -6,11 +6,13 @@
  */
 function getCookie(cookies,key){
 	var value="";
-	if(cookies.match(key)){
-		value=cookies.split(key+"=")[1].trim();
-		/*如果key后面还有其他键，则用；分割*/
-		if(value.match(";")){
-			value=value.split(";")[0].trim();
+	if(cookies){
+		if(cookies.match(key)){
+			value=cookies.split(key+"=")[1].trim();
+			/*如果key后面还有其他键，则用；分割*/
+			if(value.match(";")){
+				value=value.split(";")[0].trim();
+			}
 		}
 	}
 	return value

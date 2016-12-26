@@ -14,7 +14,7 @@ class Write extends React.Component{
 	}
 	render(){
 		return (
-			<div className="post">
+			<div className="post write-post">
 				<h3>{this.props.params.id?"修改":"发表"}</h3>
 				<InputArea isPost={true} defaultData={this.props.params.id?this.props.data[0]:""}/>
 			</div>

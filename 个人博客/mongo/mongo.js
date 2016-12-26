@@ -23,9 +23,6 @@ mongolass.plugin("addCreatedAt",{
 exports.User=mongolass.model("User",{
 	name:{type:"string"},
 	password:{type:"string"},
-	avatar:{type:"string"},//头像
-	sex:{type:"string",enum:["m","f","x"]},
-	summary:{type:"string"}//简介
 })
 exports.User.index({name:1},{unique:true}).exec()
 /*文章模型*/
@@ -41,5 +38,4 @@ exports.Comment=mongolass.model("Comment",{
 	postId:{type:Mongolass.Types.ObjectId},
 	name:{type:"string"},
 	content:{type:"string"},
-	good:[{type:"string"}]
 })

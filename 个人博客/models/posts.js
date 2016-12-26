@@ -18,6 +18,15 @@ Post.plugin("contentToHtml",{
 		return post
 	}
 })
+/*截取首页加载文章的部分内容*/
+Post.plugin("toPartOfConent",{
+	afterFind:function(posts){
+		return posts.map(function(post){
+			post.content=post.content.slice(0,400);
+			return post
+		})
+	}
+})
 /*添加留言数*/
 Post.plugin("addCommentsCount",{
 	afterFind:function(posts){
@@ -63,8 +72,8 @@ module.exports={
 			.find()
 			.sort({_id:-1})
 			.addCreatedAt()
+			.toPartOfConent()
 			.addCommentsCount()
-			.contentToHtml()
 			.exec()
 	},
 	/*更新文章*/

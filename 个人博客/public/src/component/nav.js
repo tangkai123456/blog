@@ -3,6 +3,11 @@ import {Link} from 'react-router'
 import $ from 'jquery'
 import * as actions from '../action/index.js'
 import {connect} from 'react-redux'
+import Alert from 'react-s-alert'
+
+
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 var getCookie=require("../js/getCookie.js")
 
@@ -12,8 +17,7 @@ class Nav extends React.Component{
 		this.signout=this.signout.bind(this)
 	}
 	signout(){
-		this.props.signActions("sign/out",{},true)
-		location.reload()
+		this.props.signActions("sign/out",{},true,true)
 	}
 	componentDidMount() {
 		this.props.signActions("sign/flashIn",{name:getCookie(document.cookie,"name"),password:getCookie(document.cookie,"password")},true)
@@ -22,7 +26,7 @@ class Nav extends React.Component{
 		/*取出cookie中的name*/
 		let name=getCookie(document.cookie,"name");
 		return  (
-			<div className="main">
+			<div className="main" style={{background:"url('img/bg.jpg')"}}>
 				<nav className="nav">
 					<ul className="nav-list">
 						<Link to="/">
@@ -42,16 +46,19 @@ class Nav extends React.Component{
 						</Link>
 					</ul>
 					<ul className="nav-list-bottom">
+					{
+						this.props.loginState===2?
 						<Link to="/write">
 							<li>
 								发表
 							</li>
-						</Link>
+						</Link>:""
+					}
 					</ul>
 				</nav>
 				{this.props.loginState?(
 					<div className="sign-button-group">
-						welcome{name}
+						欢迎&nbsp;{name}&nbsp;
 						<a><button className="signout" onClick={this.signout}>退出</button></a>
 					</div>
 					):(
@@ -64,6 +71,9 @@ class Nav extends React.Component{
 					<div className="container">
 						{this.props.children}
 					</div>
+				</section>
+				<section className="alert">
+					<Alert stack={{limit:3}}/>
 				</section>
 			</div>
 			)
