@@ -1,4 +1,0 @@
-Git is a version control system.
-Git is free software.
-不是乱码了
-git克隆
