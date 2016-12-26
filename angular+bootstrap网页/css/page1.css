@@ -1,8 +1,0 @@
-.page-1 .flex{display:flex;justify-content:space-between;flex-wrap:wrap}
-.page-1 .page-1-line{position:relative;margin-bottom:15px;width:26%}
-@media screen and (max-width:1366px){
-	.page-1 .page-1-line{width:45%}
-}
-.page-1 .page-1-line .jiantou{position:absolute;width:10%;height:10%;background:red;color:white;left:45%;top:45%;display:flex;align-items:center;justify-content:center}
-
-.page-1 .page-1-line img{border:2px solid rgba(0,0,0,.5)} 
