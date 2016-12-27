@@ -30,8 +30,11 @@ class Nav extends React.Component{
 				<nav className="nav">
 					<ul className="nav-list">
 						<Link to="/">
+							<img src="img/TK2.png" alt="唐凯" className="logo"/>
+						</Link>
+						<Link to="/">
 							<li>
-								个人博客
+								文章
 							</li>
 						</Link>
 						<Link to="/talk">

@@ -9,6 +9,7 @@ nav{text-align:center;line-height:40px;font-size:18px;}
 nav ul{width:100%}
 nav li{transition: .5s}
 nav li:hover{background:#2a2a2a;}
+.logo{width:40px;height:40px;}
 .nav{height:100%;width:150px;background:#654321;position:fixed;z-index:100;left:0;top:0;display:flex;justify-content:center}
 .nav-list{margin-top:50px;}
 .nav-list a{color:#fff}

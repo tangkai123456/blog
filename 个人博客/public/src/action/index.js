@@ -9,13 +9,13 @@ export function signActions(url,data,noFlash,showAlert){
 	return (dispatch,getState)=>{
 		dispatch({type:CHANGE_LOGIN_STATE,userType:0})
 		$.ajax({
-			url:"http://localhost:3000/"+url,
+			url:"http://tangkai123456.xyz/"+url,
 			type:"post",
 			data:data,
+			dataType:"json",
 			xhrFields: {
 		        withCredentials: true
 		    },
-		    dataType:"json",
 		    success:function(res){
 		    	if(res.loginState){
 					dispatch({type:CHANGE_LOGIN_STATE,userType:res.loginState})
@@ -63,7 +63,7 @@ export function getData(url,data,type="get"){
 			type:GET_DATA,
 		})
 		$.ajax({
-			url:"http://localhost:3000/"+url,
+			url:"http://tangkai123456.xyz/"+url,
 			type:type,
 			data:data,
 			xhrFields: {

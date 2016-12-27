@@ -12,6 +12,7 @@ import reducer from "./reducer/index.js"
 import thunk from 'redux-thunk'
 import PlaseWait from './component/pleaseWait.js'
 import '../css/index.css'
+import 'babel-polyfill'
 
 const store=createStore(reducer,applyMiddleware(thunk))
 render(

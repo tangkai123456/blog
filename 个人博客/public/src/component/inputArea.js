@@ -18,7 +18,7 @@ class InputArea extends React.Component{
 		if(this.props.defaultData){
 			data={content:this.refs.content.value,title:this.refs.title.value}
 				$.ajax({
-					url:"http://localhost:3000/posts/updatePost/"+this.props.defaultData._id,
+					url:"http://tangkai123456.xyz/posts/updatePost/"+this.props.defaultData._id,
 					data:data,
 					type:"post",
 					dataType:"json",
@@ -46,7 +46,7 @@ class InputArea extends React.Component{
 			if(this.props.isPost){
 				data={content:this.refs.content.value,title:this.refs.title.value}
 				$.ajax({
-					url:"http://localhost:3000/posts/writePost",
+					url:"http://tangkai123456.xyz/posts/writePost",
 					data:data,
 					type:"post",
 					dataType:"json",
@@ -73,7 +73,7 @@ class InputArea extends React.Component{
 			}else{
 				data={content:this.refs.content.value,loginState:this.props.loginState};
 				$.ajax({
-					url:"http://localhost:3000/comments/writeComment/"+this.props.postId,
+					url:"http://tangkai123456.xyz/comments/writeComment/"+this.props.postId,
 					data:data,
 					type:"post",
 					dataType:"json",

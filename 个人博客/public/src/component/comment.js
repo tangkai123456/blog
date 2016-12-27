@@ -16,7 +16,7 @@ class Comment extends React.Component{
 	}
 	delComment(){
 		$.ajax({
-			url:"http://localhost:3000/comments/delComment/"+this.props.postId+"/"+this.props.data._id,
+			url:"http://tangkai123456.xyz/comments/delComment/"+this.props.postId+"/"+this.props.data._id,
 			type:"post",
 			data:{loginState:this.props.loginState},
 			dataType:"json",

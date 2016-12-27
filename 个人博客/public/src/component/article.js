@@ -17,7 +17,7 @@ class Article extends React.Component{
 	}
 	del(){
 		$.ajax({
-			url:"http://localhost:3000/posts/deletePost/"+this.props.data._id,
+			url:"http://tangkai123456.xyz/posts/deletePost/"+this.props.data._id,
 			type:"post",
 			dataType:"json",
 			xhrFields: {
@@ -45,7 +45,7 @@ class Article extends React.Component{
 	}
 	clickGood(){
 		$.ajax({
-			url:"http://localhost:3000/posts/clickGood/"+this.props.data._id,
+			url:"http://tangkai123456.xyz/posts/clickGood/"+this.props.data._id,
 			type:"post",
 			xhrFields: {
 		        withCredentials: true
