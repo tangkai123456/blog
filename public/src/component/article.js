@@ -85,11 +85,21 @@ class Article extends React.Component{
 					</span>):""
 				}
 				</div>
-				<Link to={"/post/"+this.props.data._id} className="post-list">
+				{
+					this.props.data.comments?(
+				<div className="post-list">
+					<div className="content" ref="content" dangerouslySetInnerHTML={{__html:this.props.data.content}}>
+					{/*后台返回的是html字符串，需要用dangerouslySetInnerHTML放置到div中，防止script注入*/}
+					</div>
+				</div>
+						):(
+				<Link to={this.props.data.comments?"":"/post/"+this.props.data._id} className="post-list">
 					<div className="content" ref="content" dangerouslySetInnerHTML={{__html:this.props.data.content}}>
 					{/*后台返回的是html字符串，需要用dangerouslySetInnerHTML放置到div中，防止script注入*/}
 					</div>
 				</Link>
+						)
+				}
 				<div className="comments-list">
 					<span className="clickGood" onClick={this.clickGood}>{this.props.data.good.length}赞</span>&nbsp;<span>{this.props.data.commentsCount}评论&nbsp;<span>{this.props.data.pv}浏览</span> </span>
 				</div>
