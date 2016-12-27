@@ -42,38 +42,12 @@ state={
     }
 ```
 异步ajax使用了thunk中间件，thunk允许action的创建函数返回一个函数，满足条件的情况下才dispatch。
+
 使用三个action进行标记，actionCreator形式为：
-```
-export const GET_DATA="GET_DATA"
-export const GET_DATA_SUCCESS="GET_DATA_SUCCESS"
-export const GET_DATA_ERROR="GET_DATA_ERROR"
-export function getData(url,data,type="get"){
-	return (dispatch,getState)=>{
-		dispatch({//标记初始状态
-			type:GET_DATA,
-		})
-		$.ajax({
-			url:"http://tangkai123456.xyz/"+url,
-			type:type,
-			data:data,
-			beforeSend:function(xmlHttp){ 
-				xmlHttp.setRequestHeader("If-Modified-Since","0"); 
-				xmlHttp.setRequestHeader("Cache-Control","no-cache"); 
-			},
-			xhrFields: {//携带cookie
-		        withCredentials: true
-		    },
-			dataType:"json",
-			success:function(res){
-				dispatch({type:GET_DATA_SUCCESS,data:res.data})//获取数据后将数据放入state中
-			}.bind(this),
-			error:function(res){
-				dispatch({type:GET_DATA_ERROR,error:res})//ajax失败时提示信息
-			}
-		})
-	}
-}
-```
+    1.发起请求时dispatch("GET_DATA")
+    2.请求成功并且获取数据时dispatch("GET_DATA_SUCCESS")
+    3.请求失败时dispatch("GET_DATA_ERROR")
+    
 项目中存在许多不返回文章相关数据的ajax请求，例如用户点赞、评论，这类ajax请求不改变state，所有在组件中实现，请求成功会再次获取所有数据。
 
 ##mongoDB数据结构
