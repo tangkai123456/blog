@@ -1,9 +1,0 @@
-.line{display:flex;line-height:14px;font-size:14px;margin-bottom:15px;height:14px;}
-.line .bg{width:0;height:14px;}
-.line .per{opacity: 0}
-
-.h5_component_bar_load .per{transition:opacity 1s 1.5s;opacity: 1}
-.h5_component_bar_leave .per{transition:opacity 1s;opacity: 0}
-
-.h5_component_bar_load .line .bg{width:100%;transition:width 1s .5s}
-.h5_component_bar_leave .line .bg{width:0;transition:width 1s}
