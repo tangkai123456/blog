@@ -5,6 +5,8 @@ ul{list-style:none}
 a{text-decoration: none;color:#654321}
 button{box-shadow: 1px 1px 5px #654321;margin:0 2px;border:none;transition:.2s;border-radius: 5px}
 button:hover{background:#654321;color:white;padding:10px!important;z-index:20;cursor: pointer}
+
+.loading-icon{position:absolute;left:50%;top:20%;margin-left:-25px}
 /* 左侧导航 */
 nav{text-align:center;line-height:40px;font-size:18px;}
 nav ul{width:100%}
@@ -22,12 +24,13 @@ nav li:hover{background:#2a2a2a;}
 .alert{position: fixed;left:150px;top:0}
 /* 登录注册页面 */
 .signInput{width:40%;margin:0 auto}
-.signInput input{width:100%;margin:5px 0;border-radius: 5px;border:1px solid lightgray;padding:5px;transition:.2s}
-.signInput input:hover{box-shadow: 0 0 5px #654321}
+.signInput input{width:100%;margin:5px 0;border-radius: 5px;border:none;padding:5px;transition:.2s}
+.signInput input:hover{box-shadow: 0 0 5px #654321;transform:scale(1.1)}
+.signInput input:focus{box-shadow: 0 0 5px #654321;transform:scale(1.1);border:none;outline:none}
 .input-check{font-size:12px;color:red}
 /* 右侧内容区域 */
 .main-right{padding-left:150px;padding-top:40px;}
-.main-right .container{width:60%;margin:0 auto}
+.main-right .container{width:70%;margin:0 auto;padding:15px 0}
 
 .manager-btn{float:right;border:none;padding:4px 5px}
 /* 文章样式 */
@@ -41,11 +44,12 @@ nav li:hover{background:#2a2a2a;}
 
 /* 主页时文章的样式 */
 .posts-list .post-head{text-align:left;}
-.posts-list .post:hover{box-shadow: 0 0 10px #654321}
+.posts-list .post:hover{box-shadow: 0 5px 10px #654321;transform:translate(0,-5px)!important;background:rgba(255,255,255,.5)}
 .posts-list .content{height:64px;overflow: hidden;position:relative;}.posts-list .content::after {content: " ... "; bottom:0px;right:  3px;position: absolute;}
 /* 输入框 */
-textarea{background:rgba(255,255,255,.5);width:100%;padding:10px;border:1px solid lightgray;transition: .2s;resize:none}
-textarea:hover{box-shadow: 1px 1px 5px #654321;}
+textarea{background:rgba(255,255,255,.5);width:100%;padding:10px;border:none;transition: .2s;resize:none}
+textarea:hover{box-shadow: 0 0 5px #654321;transform:scale(1.01);border-radius: 10px}
+textarea:focus{box-shadow: 0 0 5px #654321;transform:scale(1.01);border-radius: 10px;border:none;outline:none}
 .input-area button{font-size:14px;padding:3px 5px;}
 input{background:rgba(255,255,255,.5);}
 /* 评论 */
@@ -61,4 +65,23 @@ input{background:rgba(255,255,255,.5);}
 
 /* 敬请期待 */
 .please-wait{text-align: center;font-size:20px}
+
+/* 动画 */
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 

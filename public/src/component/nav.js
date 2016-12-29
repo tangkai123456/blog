@@ -26,7 +26,7 @@ class Nav extends React.Component{
 		/*取出cookie中的name*/
 		let name=getCookie(document.cookie,"name");
 		return  (
-			<div className="main" style={{background:"url('img/bg.jpg') repeat"}}>
+			<div className="main" style={{background:"url('img/bg.jpg') repeat",backgroundAttachment:"fixed"}}>
 				<nav className="nav">
 					<ul className="nav-list">
 						<Link to="/">

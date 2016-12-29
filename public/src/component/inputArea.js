@@ -5,6 +5,7 @@ import * as actions from '../action/index.js'
 import {hashHistory} from 'react-router'
 import ajaxReturn from '../js/ajaxReturn.js'
 import Alert from 'react-s-alert'
+import QueueAnim from 'rc-queue-anim'
 
 class InputArea extends React.Component{
 	constructor(props) {
@@ -119,20 +120,20 @@ class InputArea extends React.Component{
 	}
 	render(){
 		return (
-			<form className="input-area" onSubmit={this.submit}>
-
-			{
-				this.props.isPost?(	<div className="content-head">
-											<label htmlFor="head">主题：</label>
-											<input type="text" id="head" placeholder="this is head" ref="title" required maxLength="140"/>
-										</div>):""
-			}
-				
-				<div className="content-body">
-					<textarea rows={this.props.isPost?"":"3"} placeholder={this.props.isPost?"输入内容":"评论一下"} ref="content" required maxLength={this.props.isPost?"":"200"}></textarea>
-				</div>
-				<button type="submit" >提交</button>
-			</form>
+				<form className="input-area" onSubmit={this.submit} key="a">
+				{
+					this.props.isPost?(	<div className="content-head">
+												<label htmlFor="head">主题：</label>
+												<input type="text" id="head" placeholder="this is head" ref="title" required maxLength="140"/>
+											</div>):""
+				}
+					
+					<div className="content-body">
+						<textarea rows={this.props.isPost?"":"3"} placeholder={this.props.isPost?"输入内容":"评论一下"} ref="content" required maxLength={this.props.isPost?"":"200"}></textarea>
+					</div>
+					<button type="submit" >提交</button>
+				</form>
+			
 			)
 	}
 }

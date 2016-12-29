@@ -66,10 +66,6 @@ export function getData(url,data,type="get"){
 			url:"http://tangkai123456.xyz/"+url,
 			type:type,
 			data:data,
-			beforeSend:function(xmlHttp){ 
-				xmlHttp.setRequestHeader("If-Modified-Since","0"); 
-				xmlHttp.setRequestHeader("Cache-Control","no-cache"); 
-			},
 			xhrFields: {
 		        withCredentials: true
 		    },

@@ -3,13 +3,15 @@ var path=require("path")
 var routes=require("./routes/index.js")
 var bodyParser=require("body-parser")
 var cookieParser=require("cookie-parser")
+var compression=require("compression")
 
 var app=express()
+app.use(compression())
 /*静态路径*/
 app.use(express.static(path.join(__dirname,"public")))
 /*设置允许跨域*/
 app.use(function(req,res,next){
-	res.setHeader("Access-Control-Allow-Origin", "http://tangkai123456.xyz/");
+	res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
 	res.setHeader("Access-Control-Allow-Credentials", "true");
 	next()
 })
