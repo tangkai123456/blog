@@ -10,11 +10,13 @@
 - 用户能进行评论并管理自己的评论
 
 ## 运用的技术主要有:
-- 采用react技术栈，所有状态均由redux进行管理，通过Router来设置页面路由
+- 采用react技术栈，所有状态均由redux进行管理，通过Router来设置页面路由。
 - 使用express+mongolass进行后台数据的管理与操作。
 - 前后端分离，使用jquery的ajax携带cookie进行数据交互。
-- 使用`react-s-alert`插件弹出提示消息
+- 使用`react-s-alert`插件弹出提示消息。
 - 使用babel转译、webpack打包代码。
+- 使用`Ant Motion`动画框架实现页面切换动画。
+- nodejs开启gzip压缩，首次加载的js文件大概178kb。
 
 ## 预览
 [博客](http://tangkai123456.xyz/)
@@ -77,7 +79,7 @@ Comment={
 }
 ```
 
-## 待完成增加的功能
+## 待完善的功能
 - react-router过渡动画
 - 加速首屏加载速度
 - `聊一聊`
