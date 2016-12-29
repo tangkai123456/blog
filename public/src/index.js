@@ -11,8 +11,8 @@ import {createStore,applyMiddleware} from 'redux'
 import reducer from "./reducer/index.js"
 import thunk from 'redux-thunk'
 import PlaseWait from './component/pleaseWait.js'
-import '../css/index.css'
 import 'babel-polyfill'
+import About from './component/about.js'
 
 const store=createStore(reducer,applyMiddleware(thunk))
 render(
@@ -25,7 +25,7 @@ render(
 				<Route path="/sign/:type" component={SignInput}/>
 				<Route path="/updatePost/:id" component={Write}/>
 				<Route path="/talk" component={PlaseWait}/>
-				<Route path="/about" component={PlaseWait}/>
+				<Route path="/about" component={About}/>
 			</Route>
 		</Router>
 	</Provider>
