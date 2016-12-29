@@ -16,7 +16,7 @@
 - 使用`react-s-alert`插件弹出提示消息。
 - 使用babel转译、webpack打包代码。
 - 使用`Ant Motion`动画框架实现页面切换动画。
-- nodejs开启gzip压缩，首次加载的js文件大概149kb。
+- nodejs开启gzip压缩。
 
 ## 预览
 [博客](http://tangkai123456.xyz/)
