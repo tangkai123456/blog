@@ -43,14 +43,16 @@ state={
         ]
     }
 ```
+
+## redux
 异步ajax使用了thunk中间件，thunk允许action的创建函数返回一个函数，满足条件的情况下才dispatch。
 
 使用三个action进行标记，actionCreator形式为：
     1.发起请求时dispatch("GET_DATA")
     2.请求成功并且获取数据时dispatch("GET_DATA_SUCCESS")
     3.请求失败时dispatch("GET_DATA_ERROR")
-    
-项目中所有文章信息相关的ajax请求，都使用action中的getData方法调用dispatch改变状态，在组件中不直接调用dispatch，数据流清晰。
+
+项目中所有ajax数据请求都在action中，也只有ajax可以调用dispatch改变状态树，在组件中不直接调用dispatch，数据流清晰
 
 ## mongoDB数据结构
 用户：
