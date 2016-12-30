@@ -103,8 +103,8 @@ router.post("/updatePost/:postId",function(req,res,next){
 			res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
 		})
 })
-/*点赞*/
-router.post("/clickGood/:postId",function(req,res,next){
+/*点赞,isMain参数表示是不是主页传来的请求，因为要根据不同的页面返回不同的数据*/
+router.post("/clickGood/:postId/:isMain",function(req,res,next){
 	var name=getCookie(req.headers.cookie,"name"),
 		postId=req.params.postId;
 	if(!name){
@@ -124,7 +124,23 @@ router.post("/clickGood/:postId",function(req,res,next){
 			}
 			postModel.updatePostById(postId,result)
 				.then(function(){
-					res.end(JSON.stringify({state:200,info:isFound?"已取消赞":"点赞成功"}))
+					console.log(req.params.isMain)
+					if(req.params.isMain==="1"){
+						postModel.getAllPosts()
+							.then(function(posts){
+								res.send(JSON.stringify({state:200,info:isFound?"已取消赞":"点赞成功",data:posts}))
+							})
+					}else{
+						Promise.all([
+							postModel.getPostById(postId),
+							commentModel.getComments(postId),
+							])
+							.then(function(result){
+								var post=result[0];
+								post.comments=result[1];
+								res.send(JSON.stringify({state:200,info:isFound?"已取消赞":"点赞成功",data:[post]}))
+							})
+					}
 				})
 		})
 })

@@ -17,65 +17,11 @@ class Article extends React.Component{
 		this.clickGood=this.clickGood.bind(this)
 	}
 	del(){
-		$.ajax({
-			url:"http://tangkai123456.xyz/posts/deletePost/"+this.props.data._id,
-			type:"post",
-			dataType:"json",
-			xhrFields: {
-			    withCredentials: true
-		    },
-			success:function(res){
-				if(res.state===200){
-					/*由于不知名的原因，状态改变后视图却不会变化*/
-					this.props.data.comments?this.props.getData("posts/getOnePost/"+this.props.data._id):this.props.getData("posts/getAllPosts")
-					hashHistory.push("/")
-					Alert.success(res.info,{
-						effect:"slide",
-						timeout:2000
-					})
-				}
-				ajaxReturn(res);
-			}.bind(this),
-			error:function(){
-				Alert.error("朋友，你的网络出现问题了",{
-			    	effect:"slide",
-			    	timeout:2000
-			    })
-			}
-		})
+		this.props.getData("posts/deletePost/"+this.props.data._id,{},"post",true)
+		hashHistory.push("/")
 	}
 	clickGood(){
-		$.ajax({
-			url:"http://tangkai123456.xyz/posts/clickGood/"+this.props.data._id,
-			type:"post",
-			xhrFields: {
-		        withCredentials: true
-		    },
-		    dataType:"json",
-			success:function(res){
-				if(res.state==200){
-					/*主页的时候，获取所有数据，单个文章页获取一页数据*/
-					this.props.data.comments?this.props.getData("posts/getOnePost/"+this.props.data._id):this.props.getData("posts/getAllPosts")
-					Alert.success(res.info,{
-						effect:"slide",
-						timeout:2000
-					})
-				}
-				ajaxReturn(res);
-			}.bind(this),
-			error:function(){
-				Alert.error("朋友，你的网络出现问题了",{
-			    	effect:"slide",
-			    	timeout:2000
-			    })
-			}
-		})
-	}
-	componentDidMount() {
-		[].forEach.call($(this.refs.content).children(),function(item,i){
-			$(item).attr("key",i)
-			console.log(i)
-		})
+		this.props.getData("posts/clickGood/"+this.props.data._id+"/"+(this.props.data.comments?0:1),{},"post",true)
 	}
 	render(){
 		return (

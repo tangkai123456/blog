@@ -15,32 +15,7 @@ class Comment extends React.Component{
 		this.delComment=this.delComment.bind(this)
 	}
 	delComment(){
-		$.ajax({
-			url:"http://tangkai123456.xyz/comments/delComment/"+this.props.postId+"/"+this.props.data._id,
-			type:"post",
-			data:{loginState:this.props.loginState},
-			dataType:"json",
-			xhrFields: {
-			    withCredentials: true
-		    },
-			success:function(res){
-				if(res.state===200){
-					/*由于不知名的原因，状态改变后视图却不会变化*/
-					this.props.getData("posts/getOnePost/"+this.props.postId)
-					Alert.success(res.info,{
-						effect:"slide",
-						timeout:2000
-					})
-				}
-				ajaxReturn(res)
-			}.bind(this),
-			error:function(){
-				Alert.error("朋友，你的网络出现问题了",{
-			    	effect:"slide",
-			    	timeout:2000
-			    })
-			}
-		})
+		this.props.getData("comments/delComment/"+this.props.postId+"/"+this.props.data._id,{loginState:this.props.loginState},"post",true)
 	}
 	render(){
 		return (

@@ -16,93 +16,24 @@ class InputArea extends React.Component{
 		e.preventDefault();
 		var url="";
 		var data={};
-		if(this.props.defaultData){
+		if(this.props.defaultData){//修改文章
 			data={content:this.refs.content.value,title:this.refs.title.value}
-				$.ajax({
-					url:"http://tangkai123456.xyz/posts/updatePost/"+this.props.defaultData._id,
-					data:data,
-					type:"post",
-					dataType:"json",
-					xhrFields: {
-				        withCredentials: true
-				    },
-					success:function(res){
-						if(res.state===200){
-							hashHistory.push("/")
-							Alert.success(res.info,{
-								effect:"slide",
-								timeout:2000
-							})
-						}
-						ajaxReturn(res)
-					},
-					error:function(){
-						Alert.error("朋友，你的网络出现问题了",{
-					    	effect:"slide",
-					    	timeout:2000
-					    })
-					}
-				})
-		}else{
+			this.props.getData("posts/updatePost/"+this.props.defaultData._id,data,"post",true)
+			hashHistory.push("/")
+		}else{//发表文章
 			if(this.props.isPost){
 				data={content:this.refs.content.value,title:this.refs.title.value}
-				$.ajax({
-					url:"http://tangkai123456.xyz/posts/writePost",
-					data:data,
-					type:"post",
-					dataType:"json",
-					xhrFields: {
-				        withCredentials: true
-				    },
-					success:function(res){
-						if(res.state===200){
-							hashHistory.push("/")
-							Alert.success(res.info,{
-								effect:"slide",
-								timeout:2000
-							})
-						}
-						ajaxReturn(res)
-					},
-					error:function(){
-						Alert.error("朋友，你的网络出现问题了",{
-					    	effect:"slide",
-					    	timeout:2000
-					    })
-					}
-				})
-			}else{
+				this.props.getData("posts/writePost",data,"post",true)
+				hashHistory.push("/")
+			}else{//发表评论
 				data={content:this.refs.content.value,loginState:this.props.loginState};
-				$.ajax({
-					url:"http://tangkai123456.xyz/comments/writeComment/"+this.props.postId,
-					data:data,
-					type:"post",
-					dataType:"json",
-					xhrFields: {
-				        withCredentials: true
-				    },
-					success:function(res){
-						if(res.state===200){
-							if(this.refs.title){
-								this.refs.title.value=""
-							}
-							this.refs.content.value=""
-							/*由于不知名的原因，状态改变后视图却不会变化*/
-							this.props.getData("posts/getOnePost/"+this.props.postId)
-							Alert.success(res.info,{
-								effect:"slide",
-								timeout:2000
-							})
-						}
-						ajaxReturn(res)
-					}.bind(this),
-					error:function(){
-						Alert.error("朋友，你的网络出现问题了",{
-					    	effect:"slide",
-					    	timeout:2000
-					    })
+				this.props.getData("comments/writeComment/"+this.props.postId,data,"post",true)
+				if(this.props.loginState){
+					if(this.refs.title){
+				 		this.refs.title.value=""
 					}
-				})
+					this.refs.content.value=""
+				}
 			}
 		}
 	}

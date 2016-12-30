@@ -17,7 +17,15 @@ router.post("/delComment/:postId/:commentId",function(req,res,next){
 	if(loginState==="2"){
 		commentModel.delCommentById(commentId)
 			.then(function(){
-				res.end(JSON.stringify({state:200,info:"删除成功"}))
+				Promise.all([
+					postModel.getPostById(postId),
+					commentModel.getComments(postId),
+					])
+					.then(function(result){
+						var post=result[0];
+						post.comments=result[1];
+						res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
+					})
 			})
 			.catch(function(e){
 				res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
@@ -25,7 +33,15 @@ router.post("/delComment/:postId/:commentId",function(req,res,next){
 		}else if(loginState==="1"){
 			commentModel.delCommentByIdAndName(commentId,name)
 				.then(function(){
-					res.end(JSON.stringify({state:200,info:"删除成功"}))
+					Promise.all([
+						postModel.getPostById(postId),
+						commentModel.getComments(postId),
+						])
+						.then(function(result){
+							var post=result[0];
+							post.comments=result[1];
+							res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
+						})
 				})
 				.catch(function(e){
 					res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
@@ -48,7 +64,15 @@ router.post("/writeComment/:postId",function(req,res,next){
 	}
 	commentModel.create(comment)
 		.then(function(){
-			res.end(JSON.stringify({state:200,info:"评论成功"}))
+			Promise.all([
+				postModel.getPostById(postId),
+				commentModel.getComments(postId),
+				])
+				.then(function(result){
+					var post=result[0];
+					post.comments=result[1];
+					res.send(JSON.stringify({state:200,info:"评论成功",data:[post]}))
+				})
 		})
 		.catch(function(e){
 			res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
