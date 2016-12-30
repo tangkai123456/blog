@@ -47,7 +47,7 @@ state={
 ## redux
 异步ajax使用了thunk中间件，thunk允许action的创建函数返回一个函数，满足条件的情况下才dispatch。
 
-使用三个action进行标记，actionCreator形式为：
+使用三个action进行标记，获取文章相关数据的actionCreator形式为：
     1.发起请求时dispatch("GET_DATA")
     2.请求成功并且获取数据时dispatch("GET_DATA_SUCCESS")
     3.请求失败时dispatch("GET_DATA_ERROR")
