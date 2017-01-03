@@ -34,7 +34,7 @@ export function signActions(url,data,noFlash,showAlert){
 		// 		console.log('parsing failed', ex)
 		// 	})
 		$.ajax({
-			url:"http://tangkai123456.xyz/"+url,
+			url:"http://localhost/"+url,
 			type:"post",
 			data:data,
 			dataType:"json",
@@ -103,7 +103,7 @@ export function getData(url,data,type="get",alert){
 			type:GET_DATA,
 		})
 		$.ajax({
-			url:"http://tangkai123456.xyz/"+url,
+			url:"http://localhost/"+url,
 			type:type,
 			data:data,
 			xhrFields: {

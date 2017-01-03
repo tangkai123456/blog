@@ -68,7 +68,10 @@ export default class About extends React.Component{
 								</div>
 
 								<div className="mr_content_m olpf">
-									<p>精确实现设计稿中的页面效果，并与后端人员合作整合整个网站</p>
+									<p>1、根据产品设计的需求，配合后台开发人员实现产品的界面以及功能，维护及优化前端页面性能。</p>
+									<p>2、参与设计并且编写web前端构架以及应用。</p>
+									<p>3、产品、设计、后台开发各个部门沟通，利用HTML以及JavaScript等相关技术开发网站和客户端的前端页面。</p>
+									<p>4、利用css3以及JavaScript构建公司的网站，将公司的信息以及产品的介绍通过HTML的页面展示出来，并且保证产品信息的更新。</p>
 								</div>
 								</div>
 							</div>

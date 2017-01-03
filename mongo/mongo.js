@@ -39,3 +39,8 @@ exports.Comment=mongolass.model("Comment",{
 	name:{type:"string"},
 	content:{type:"string"},
 })
+/*聊天信息模型*/
+exports.Message=mongolass.model("Message",{
+	name:{type:"string"},
+	content:{type:"string"}
+})

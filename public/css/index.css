@@ -44,7 +44,7 @@ nav li:hover{background:#8d7155;}
 }
 /* 右侧内容区域 */
 .main-right{padding-left:150px;padding-top:40px;}
-.main-right .container{width:70%;margin:0 auto;padding:15px 0}
+.main-right .container{width:70%;margin:0 auto;padding:15px 0;position: relative;}
 @media screen and (max-width:768px){
 	.main-right{padding-left:0}
 	.main-right .container{width:95%}
@@ -88,4 +88,17 @@ input{background:rgba(255,255,255,.5);}
 
 /* 敬请期待 */
 .please-wait{text-align: center;font-size:20px}
+
+/* 聊天 */
+.talkroom .message-box{position:fixed;width:60%;max-height: 70%;overflow: auto;padding:0 5px}
+.message-box .message{margin-bottom:15px;}
+.message-head{color:#666}
+.message-head .message-name{font-weight: bold}
+.message-head .message-time{font-size:12px;margin:0 5px}
+.talkroom .talk-input-group{position: fixed;top:80%;width:60%;z-index:10}
+.talk-input-group .talk-input{line-height:2;border:none;}
+.self .message-name{float:right}
+.self .message-time{float:right}
+.self .message-content{float:right;}
+.self:after{content:" ";display:block;clear:both}
 

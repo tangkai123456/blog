@@ -39,6 +39,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
     "sha1": "^1.1.1",
+    "socket.io": "^1.7.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2",

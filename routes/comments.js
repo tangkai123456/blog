@@ -3,7 +3,6 @@ var router=express.Router()
 var postModel=require("../models/posts.js")
 var commentModel=require("../models/comments.js")
 var getCookie=require("../public/src/js/getCookie.js")
-var moment=require("moment")
 var Promise=require("promise")
 /*删除评论*/
 router.post("/delComment/:postId/:commentId",function(req,res,next){
