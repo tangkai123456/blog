@@ -6,7 +6,6 @@ input[type="text"]:focus{border:1px solid #32dbb3;}
 .mr_created input[type="text"]:focus{border-width:1px;}
 .mr_content input[type="text"]:focus{border:none;}
 .mr_created input{border:none;}
-a:hover{color:#00b88d;}
 .fl{float:left;}
 h1, h2, h3, h4, h5 {
 font-weight: normal;
