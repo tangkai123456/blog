@@ -19,13 +19,15 @@ render(
 	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/" component={Nav}>
-				<IndexRoute component={Posts}/>
+				<IndexRoute path="/main" component={Posts}/>
+				<Route path="/main" component={Posts}/>
 				<Route path="/post/:id" component={Post}/>
 				<Route path="/write" component={Write}/>
 				<Route path="/sign/:type" component={SignInput}/>
 				<Route path="/updatePost/:id" component={Write}/>
 				<Route path="/talk" component={PlaseWait}/>
 				<Route path="/about" component={About}/>
+
 			</Route>
 		</Router>
 	</Provider>

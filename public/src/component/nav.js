@@ -26,32 +26,31 @@ class Nav extends React.Component{
 		/*取出cookie中的name*/
 		let name=getCookie(document.cookie,"name");
 		return  (
-			<div className="main" style={{background:"url('img/bg.jpg') repeat",backgroundAttachment:"fixed"}}>
+			<div className="main">
 				<nav className="nav">
 					<ul className="nav-list">
 						<Link to="/">
 							<img src="img/TK2.png" alt="唐凯" className="logo"/>
 						</Link>
-						<Link to="/">
+						<Link to="/main" activeClassName="activeClass">
 							<li>
 								文章
 							</li>
 						</Link>
-						<Link to="/talk">
+						<Link to="/talk" activeClassName="activeClass">
 							<li>
 								聊一聊
 							</li>
 						</Link>
-						<Link to="/about">
+						<Link to="/about" activeClassName="activeClass">
 							<li>
 								关于
 							</li>
 						</Link>
-					</ul>
-					<ul className="nav-list-bottom">
+					
 					{
 						this.props.loginState===2?
-						<Link to="/write">
+						<Link to="/write" className="nav-list-bottom"  activeClassName="activeClass">
 							<li>
 								发表
 							</li>

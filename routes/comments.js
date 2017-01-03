@@ -15,33 +15,29 @@ router.post("/delComment/:postId/:commentId",function(req,res,next){
 		return res.end(JSON.stringify({state:300,info:"请登录"}))
 	}
 	if(loginState==="2"){
-		commentModel.delCommentById(commentId)
-			.then(function(){
-				Promise.all([
-					postModel.getPostById(postId),
-					commentModel.getComments(postId),
-					])
-					.then(function(result){
-						var post=result[0];
-						post.comments=result[1];
-						res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
-					})
+		Promise.all([
+				commentModel.delCommentById(commentId),
+				postModel.getPostById(postId),
+				commentModel.getComments(postId),
+			])
+			.then(function(result){
+				var post=result[1];
+				post.comments=result[2];
+				res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
 			})
 			.catch(function(e){
 				res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
 			})
 		}else if(loginState==="1"){
-			commentModel.delCommentByIdAndName(commentId,name)
-				.then(function(){
-					Promise.all([
-						postModel.getPostById(postId),
-						commentModel.getComments(postId),
-						])
-						.then(function(result){
-							var post=result[0];
-							post.comments=result[1];
-							res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
-						})
+			Promise.all([
+				commentModel.delCommentByIdAndName(commentId,name),
+				postModel.getPostById(postId),
+				commentModel.getComments(postId),
+			])
+				.then(function(result){
+					var post=result[1];
+					post.comments=result[2];
+					res.send(JSON.stringify({state:200,info:"删除成功",data:[post]}))
 				})
 				.catch(function(e){
 					res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
@@ -62,17 +58,15 @@ router.post("/writeComment/:postId",function(req,res,next){
 		content:content,
 		postId:postId,
 	}
-	commentModel.create(comment)
-		.then(function(){
-			Promise.all([
-				postModel.getPostById(postId),
-				commentModel.getComments(postId),
-				])
-				.then(function(result){
-					var post=result[0];
-					post.comments=result[1];
-					res.send(JSON.stringify({state:200,info:"评论成功",data:[post]}))
-				})
+	Promise.all([
+		commentModel.create(comment),
+		postModel.getPostById(postId),
+		commentModel.getComments(postId),
+	])
+		.then(function(result){
+			var post=result[1];
+			post.comments=result[2];
+			res.send(JSON.stringify({state:200,info:"评论成功",data:[post]}))
 		})
 		.catch(function(e){
 			res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))

@@ -42,7 +42,7 @@ class Article extends React.Component{
 					{
 						this.props.data.comments?(
 					<div className="post-list">
-					<QueueAnim type="right">
+					<QueueAnim type="right" className="post-content">
 						<div className="content" ref="content" key="a" dangerouslySetInnerHTML={{__html:this.props.data.content}}>
 
 						{/*后台返回的是html字符串，需要用dangerouslySetInnerHTML放置到div中，防止script注入*/}

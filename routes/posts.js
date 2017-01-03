@@ -45,9 +45,9 @@ router.get("/getOnePost/:postId",function(req,res,next){
 		commentModel.getComments(postId),
 		req.query.flash?postModel.incPv(postId):null
 		])
-		.then(function(result){
-			var post=result[0];
-			post.comments=result[1];
+		.then(function(results){
+			var post=results[0];
+			post.comments=results[1];
 			res.send(JSON.stringify({state:200,info:"get post success",data:[post]}))
 		})
 		.catch(function(){
@@ -71,12 +71,13 @@ router.post("/deletePost/:postId",function(req,res,next){
 		return res.send(JSON.stringify({state:300,info:"你没有权限"}))
 	}
 	var postId=req.params.postId;
-	postModel.delPostById(postId)
-		.then(function(){
+	Promise.all([
+			postModel.delPostById(postId),
 			postModel.getAllPosts()
-				.then(function(posts){
-					res.send(JSON.stringify({state:200,info:"删除成功",data:posts}))
-				})
+		])
+		.then(function(results){
+			var posts=results[1];
+			res.send(JSON.stringify({state:200,info:"删除成功",data:posts}))
 		})
 		.catch(function(){
 			res.send(JSON.stringify({state:400,info:"朋友，你的网络出现问题了"}))
@@ -124,7 +125,6 @@ router.post("/clickGood/:postId/:isMain",function(req,res,next){
 			}
 			postModel.updatePostById(postId,result)
 				.then(function(){
-					console.log(req.params.isMain)
 					if(req.params.isMain==="1"){
 						postModel.getAllPosts()
 							.then(function(posts){

@@ -2,6 +2,7 @@ import $ from 'jquery'
 import getCookie from '../js/getCookie.js'
 import {hashHistory} from 'react-router'
 import Alert from 'react-s-alert'
+/*import 'whatwg-fetch'*/
 
 /*修改登录状态*/
 export const CHANGE_LOGIN_STATE="CHANGE_LOGIN_STATE"
@@ -16,8 +17,24 @@ export const CHANGE_LOGIN_STATE="CHANGE_LOGIN_STATE"
 export function signActions(url,data,noFlash,showAlert){
 	return (dispatch,getState)=>{
 		dispatch({type:CHANGE_LOGIN_STATE,userType:0})
+		// fetch("http://localhost/"+url,{
+		// 	method:"post",
+		// 	body:JSON.stringify(data),
+		// 	headers: {
+		//       'Accept': 'application/json, text/javascript, */*; q=0.01',
+		//       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+		//     },
+		//     credentials: 'credentials',
+		// })
+		// 	.then(function(response) {
+		// 		return response.json()
+		// 	}).then(function(json) {
+		// 		console.log('parsed json', json)
+		// 	}).catch(function(ex) {
+		// 		console.log('parsing failed', ex)
+		// 	})
 		$.ajax({
-			url:"http://localhost/"+url,
+			url:"http://tangkai123456.xyz/"+url,
 			type:"post",
 			data:data,
 			dataType:"json",
@@ -86,7 +103,7 @@ export function getData(url,data,type="get",alert){
 			type:GET_DATA,
 		})
 		$.ajax({
-			url:"http://localhost/"+url,
+			url:"http://tangkai123456.xyz/"+url,
 			type:type,
 			data:data,
 			xhrFields: {

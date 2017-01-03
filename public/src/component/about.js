@@ -84,9 +84,6 @@ export default class About extends React.Component{
 										<span className="mr_title_l"></span><span className="mr_title_c">教育经历</span><span className="mr_title_r"></span>
 									</div>
 								</div>
-								<div className="mr_head_r">
-									<i></i><em>添加</em>
-								</div>
 							</div>
 							<div className="mr_moudle_content">
 							<div className="list_show">
