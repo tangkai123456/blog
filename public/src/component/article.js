@@ -25,7 +25,6 @@ class Article extends React.Component{
 	}
 	render(){
 		return (
-			
 				<article className="post">
 					<Link to={"/post/"+this.props.data._id} className="post-list">
 						<h2 className="post-head" dangerouslySetInnerHTML={{__html:this.props.data.title}}>

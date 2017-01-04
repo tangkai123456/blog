@@ -96,9 +96,20 @@ input{background:rgba(255,255,255,.5);}
 .message-head .message-name{font-weight: bold}
 .message-head .message-time{font-size:12px;margin:0 5px}
 .talkroom .talk-input-group{position: fixed;top:80%;width:60%;z-index:10}
-.talk-input-group .talk-input{line-height:2;border:none;}
+.talk-input-group .talk-input{width:90%;margin:5px 0;border-radius: 5px;border:none;padding:5px;transition:.2s}
+.talk-input-group .talk-input:hover{box-shadow: 0 0 5px #654321}
+.talk-input-group .talk-input:focus{box-shadow: 0 0 5px #654321;border:none;outline:none}
 .self .message-name{float:right}
 .self .message-time{float:right}
 .self .message-content{float:right;}
 .self:after{content:" ";display:block;clear:both}
+.showAll{cursor:pointer}
+@media screen and (max-width:768px){
+	.talkroom .message-box{width:95%;padding:0 15px;height:90%}
+	.talkroom .talk-input-group{width:100%}
+	.talk-input-group .talk-input{width:80%}
+	.talk-submit{background:#654321;color:white;padding:5px 10px!important;z-index:20;cursor: pointer}
+	.talkroom .talk-input-group{top:auto;bottom:4em;}
+	.talkroom .message-box{max-height:100%;padding-bottom:5.5em}
+}
 

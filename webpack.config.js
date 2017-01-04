@@ -18,6 +18,15 @@ module.exports = {
 			loader: 'url-loader?limit=8192'
 		}]
 	},
+	externals:{
+		'react':'React',
+		'react-dom':'ReactDOM',
+		'redux':'Redux',
+		'react-redux':'ReactRedux',
+		'jquery':'$',
+		'socket':'Socket',
+		'react-router':'ReactRouter',
+	},
 	/*plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: {

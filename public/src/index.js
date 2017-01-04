@@ -11,7 +11,6 @@ import {createStore,applyMiddleware} from 'redux'
 import reducer from "./reducer/index.js"
 import thunk from 'redux-thunk'
 import PlaseWait from './component/pleaseWait.js'
-import 'babel-polyfill'
 import About from './component/about.js'
 import Talk from './component/talk.js'
 

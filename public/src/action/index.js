@@ -153,3 +153,22 @@ export function getData(url,data,type="get",alert){
 	}
 }
 
+export const GET_MESSAGES="GET_MESSAGES"
+
+export function getMessages(res){
+	return (dispatch,getState)=>{
+		if(res.state===200){
+			dispatch({type:GET_MESSAGES,data:res.data})
+		}else if(res.state===300){
+			Alert.warning(res.info,{
+				effect:"slide",
+				timeout:2000
+			})
+		}else{
+			Alert.error("朋友，你的网络出现问题了",{
+			    effect:"slide",
+			    timeout:2000
+			   })
+		}
+	}
+}
