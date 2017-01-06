@@ -32,27 +32,27 @@ class Nav extends React.Component{
 						<Link to="/">
 							<img src="img/TK2.png" alt="唐凯" className="logo"/>
 						</Link>
-						<Link to="/main" activeClassName="activeClass">
+						<Link to="/main" className="nav-posts" activeClassName="activeClass actPosts">
 							<li>
-								文章
+								<span>文章</span>
 							</li>
 						</Link>
-						<Link to="/talk" activeClassName="activeClass">
+						<Link to="/talk" className="nav-talk" activeClassName="activeClass actTalk">
 							<li>
-								聊一聊
+								<span>聊一聊</span>
 							</li>
 						</Link>
-						<Link to="/about" activeClassName="activeClass">
+						<Link to="/about" className="nav-about" activeClassName="activeClass actAbout">
 							<li>
-								关于
+								<span>关于</span>
 							</li>
 						</Link>
 					
 					{
 						this.props.loginState===2?
-						<Link to="/write" className="nav-list-bottom"  activeClassName="activeClass">
+						<Link to="/write" className="nav-list-bottom"  activeClassName="activeClass actWrite">
 							<li>
-								发表
+								<span>发表</span>
 							</li>
 						</Link>:""
 					}

@@ -10,7 +10,7 @@ button:hover{background:#654321;color:white;padding:10px!important;z-index:20;cu
 nav{text-align:center;line-height:40px;font-size:18px;}
 nav ul{width:100%;list-style:none}
 nav li{transition: .5s}
-nav li:hover{background:#8d7155;}
+nav li:hover{color:black;}
 .logo{width:40px;height:40px;}
 .nav{height:100%;width:150px;background:rgba(101,67,33,.8);position:fixed;z-index:100;left:0;top:0;display:flex;justify-content:center}
 .nav-list{margin-top:50px;}
@@ -22,16 +22,25 @@ nav li:hover{background:#8d7155;}
 .sign-button-group button{border:none;padding:10px;}
 .alert{position: fixed;left:150px;top:0}
 .activeClass li{background:#8d7155;color:black;}
+
 @media screen and (max-width:768px){
 	.nav{position:fixed;bottom:0;top:auto;width:100%;height:3em}
 	nav ul{display: flex;line-height:3em;justify-content:space-around}
-	nav li:hover{background: none;}
 	.nav-list>a:nth-of-type(1){position:fixed;top:0;left:0;width:100%;line-height:1;background:rgba(101,67,33,.8);text-align: left;}
 	.nav-list{margin:0}
-	.activeClass li{background:none;transform:scale(1.5)}
+	.activeClass li{background:none;}
 	.activeClass a:focus{background: none}
 	.nav-list-bottom{position:static;width:auto}
 	.nav-list-bottom{color:white}
+	.nav-list span{visibility: hidden}
+	.nav-posts li{background:url("../img/post n.png") no-repeat center;background-size: 50px 50px}
+	.nav-talk li{background:url("../img/talk (1).png") no-repeat center;background-size: 25px 25px}
+	.nav-about li{background:url("../img/about.png") no-repeat center;background-size: 36px 36px}
+	.nav-list-bottom li{background:url("../img/write.png") no-repeat center;background-size: 25px 25px}
+	.actPosts li{background:url("../img/icon post.png") no-repeat center;background-size: 35px 35px}
+	.actTalk li{background:url("../img/talk.png") no-repeat center;background-size: 25px 25px}
+	.actAbout li{background:url("../img/about (1).png") no-repeat center;background-size: 36px 36px}
+	.actWrite li{background:url("../img/write (1).png") no-repeat center;background-size: 25px 25px}
 }
 /* 登录注册页面 */
 .signInput{width:40%;margin:0 auto}
