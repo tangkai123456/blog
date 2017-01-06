@@ -19,10 +19,9 @@
 - 使用`react-s-alert`插件弹出提示消息。
 - 使用`babel`转译、`webpack`打包代码。
 - 使用`Ant Motion`动画框架实现页面切换动画。
-- `nodejs`开启gzip压缩。
 - 响应式设计，在pc端、pad端、手机端体验良好。
 - 使用`socket.io`完成聊一聊功能，聊天信息可以实时更新
-- `react`等库文件引用自[BootCDN](http://www.bootcdn.cn/)，`webpack`打包忽略了库文件，除库文件外首次加载js约60k。
+- `react`等库文件引用自[BootCDN](http://www.bootcdn.cn/)，`webpack`打包忽略了库文件，`nodejs`开启gzip压缩，除库文件外首次加载js约60k。
 
 ## 预览
 [博客](http://tangkai123456.xyz/)
