@@ -1,5 +1,5 @@
 ## 项目简介
-使用react搭建的个人博客,手机端显示为单页面应用。
+使用react技术栈搭建的个人博客,手机端显示为单页面应用。
 
 [git](https://github.com/tangkai123456/blog)
 
