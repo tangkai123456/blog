@@ -2,17 +2,17 @@ import React,{PropTypes} from 'react'
 import {render} from 'react-dom'
 import {Router,Route,hashHistory,IndexRoute} from 'react-router'
 import Nav from './component/nav.js'
-import Posts from './component/posts.js'
-import Post from './component/post.js'
-import Write from './component/write.js'
-import SignInput from './component/signInput.js'
+import Posts from './component/posts/posts.js'
+import Post from './component/posts/post.js'
+import Write from './component/posts/write.js'
+import SignInput from './component/sign/signInput.js'
 import {Provider} from 'react-redux'
 import {createStore,applyMiddleware} from 'redux'
 import reducer from "./reducer/index.js"
 import thunk from 'redux-thunk'
 import PlaseWait from './component/pleaseWait.js'
-import About from './component/about.js'
-import Talk from './component/talk.js'
+import About from './component/about/about.js'
+import Talk from './component/talk/talk.js'
 
 const store=createStore(reducer,applyMiddleware(thunk))
 render(

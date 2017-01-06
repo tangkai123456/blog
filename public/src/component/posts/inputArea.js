@@ -1,9 +1,9 @@
 import React,{PropTypes} from 'react'
 import $ from 'jquery'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import {hashHistory} from 'react-router'
-import ajaxReturn from '../js/ajaxReturn.js'
+import ajaxReturn from '../../js/ajaxReturn.js'
 import Alert from 'react-s-alert'
 import QueueAnim from 'rc-queue-anim'
 

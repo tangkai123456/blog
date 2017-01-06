@@ -55,6 +55,7 @@ export function signActions(url,data,noFlash,showAlert){
 			    			timeout:2000
 			    		})
 		    		}else if(res.state===300){
+		    			dispatch({type:"SHOW_INFO",info:{info:res.info,xuhao:3}})
 		    			Alert.warning(res.info,{
 			    			effect:"slide",
 			    			timeout:2000

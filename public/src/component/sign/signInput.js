@@ -2,9 +2,9 @@ import React,{PropTypes} from 'react'
 import $ from 'jquery'
 import {hashHistory} from 'react-router'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import QueueAnim from 'rc-queue-anim'
-var getCookie=require("../js/getCookie.js")
+var getCookie=require("../../js/getCookie.js")
 /**
  * 登录与注册的表单，通过判断属性返回不同的结构和进行不同的js
  */

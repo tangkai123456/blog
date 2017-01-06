@@ -1,13 +1,13 @@
 import React,{PropTypes} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import {hashHistory} from 'react-router'
 import $ from 'jquery'
-import ajaxReturn from '../js/ajaxReturn.js'
+import ajaxReturn from '../../js/ajaxReturn.js'
 import Alert from 'react-s-alert'
 
-var getCookie=require("../js/getCookie.js")
+var getCookie=require("../../js/getCookie.js")
 
 class Comment extends React.Component{
 	constructor(props) {

@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import QueueAnim from 'rc-queue-anim'
 import Alert from 'react-s-alert'
-var getCookie=require("../js/getCookie.js")
+var getCookie=require("../../js/getCookie.js")
 var Loader = require('halogen/ClipLoader');
 
 class Talk extends React.Component{

@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react'
 import InputArea from './inputArea.js'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 
 class Write extends React.Component{
 	constructor(props) {

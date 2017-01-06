@@ -2,7 +2,7 @@ import React,{PropTypes} from 'react'
 import Article from './article.js'
 import $ from 'jquery'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import QueueAnim from 'rc-queue-anim'
 var Loader = require('halogen/ClipLoader');
 

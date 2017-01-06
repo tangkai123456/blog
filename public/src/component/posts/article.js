@@ -3,11 +3,11 @@ import {Link} from 'react-router'
 import Comment from './comment.js'
 import InputArea from './inputArea.js'
 import {connect} from 'react-redux'
-import * as actions from '../action/index.js'
+import * as actions from '../../action/index.js'
 import $ from 'jquery'
 import {hashHistory} from 'react-router'
 import Alert from 'react-s-alert'
-import ajaxReturn from '../js/ajaxReturn.js'
+import ajaxReturn from '../../js/ajaxReturn.js'
 import QueueAnim from 'rc-queue-anim'
 
 class Article extends React.Component{
