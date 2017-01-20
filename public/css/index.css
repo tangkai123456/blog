@@ -99,7 +99,7 @@ input{background:rgba(255,255,255,.5);}
 .please-wait{text-align: center;font-size:20px}
 
 /* 聊天 */
-.talkroom .message-box{position:fixed;width:60%;max-height: 70%;overflow: auto;padding:0 5px}
+.talkroom .message-box{position:fixed;width:60%;max-height: 70%;overflow-x: auto;padding:0 5px}
 .message-box .message{margin-bottom:15px;}
 .message-head{color:#666}
 .message-head .message-name{font-weight: bold}

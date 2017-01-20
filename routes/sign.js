@@ -16,6 +16,8 @@ router.post("/flashIn",function(req,res,next){
 					if(name==="tangkai"){
 						loginState=2
 					}
+					res.cookie("name",name,{maxAge:1000*60*60*24*10});
+					res.cookie("password",result.password,{maxAge:1000*60*60*24*10});
 					return res.send(JSON.stringify({state:200,info:"登录成功",loginState:loginState}))
 				}
 			}
