@@ -10,7 +10,7 @@ const rootRoute = {
   indexRoute: {
     getComponent(nextState, cb) {
       require.ensure([], (require) => {
-        cb(null, require("./posts.js").default)
+        cb(null, require("../component/posts/posts.js").default)
       }, 'Posts')
     },
   },
@@ -25,7 +25,8 @@ const rootRoute = {
     require("./write.js"),
     require("./signInput.js"),
     require("./about.js"),
-    require("./talk.js")
+    require("./talk.js"),
+    require("./update.js")
   ]
 }
 
