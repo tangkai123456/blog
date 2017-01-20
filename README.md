@@ -21,8 +21,8 @@
 - 使用`Ant Motion`动画框架实现页面切换动画。
 - 响应式设计，在pc端、pad端、手机端体验良好。
 - 使用`socket.io`完成聊一聊功能，聊天信息可以实时更新
-- `react`等库文件引用自[BootCDN](http://www.bootcdn.cn/)，`webpack`打包忽略了库文件，`nodejs`开启gzip压缩，除库文件外首次加载js约60k。
-- react-router结合webpack设置按需加载
+- `react`等库文件引用自[BootCDN](http://www.bootcdn.cn/)。
+- react-router结合webpack设置按需加载。
 
 ## 预览
 [博客](http://tangkai123456.xyz/)
